@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "김정수 — Product Manager / Product Lead",
-  description: "9년간 게임·교육·핀테크 도메인에서 문제를 정의하고, 팀을 움직여 비즈니스 성과로 연결해온 PM입니다.",
+  description: "8년간 게임·교육·핀테크 도메인에서 문제를 정의하고, 팀을 움직여 비즈니스 성과로 연결해온 PM입니다.",
   keywords: ["PM", "PO", "Product Manager", "Product Lead", "김정수", "포트폴리오"],
 };
 
