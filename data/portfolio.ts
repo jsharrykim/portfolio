@@ -177,7 +177,7 @@ export const projects: Project[] = [
     period: "2026.01 ~ 진행 중",
     tags: ["AI Native", "Platform", "0→1"],
     role: "TF 리드 (PL) · 방향 정의 · 병목 해결",
-    summary: "Studio에서 게임을 만들려면 스크립트를 직접 작성해야 한다는 기술 장벽이 크리에이터 저변 확대를 막고 있었습니다. 이 병목을 해결하기 위해 'AI Agent 기반 게임 제작 자동화' TF를 직접 제안하고 리드했습니다. 범용 AI 도구와 MCP 연결을 통한 기술 실증 후, 자체 OVERDARE Agent 구축으로 피봇팅하여 '별도 설치 없이 버튼 하나로 21개 제어 도구를 활용해 게임을 자율 제작하는 내장형 환경(Phase 1)'을 완성했습니다.",
+    summary: "게임 제작의 거대한 장벽인 '스크립팅' 문제를 해결하기 위해 'AI Agent 기반 게임 제작 자동화' TF를 직접 제안하고 리드했습니다. AI가 사람을 대체하는 것이 아니라 사람이 AI를 조종하는 구조를 설계하여, 코딩 없이 대화만으로 21개 제어 도구를 활용해 게임을 조립하는 내장형 환경(Phase 1) 릴리즈를 앞두고 있습니다.",
     imagePlaceholder: "Agentic Studio 데모 화면 또는 Agent UI 스크린샷",
     metrics: [
       { value: "21개", label: "Studio 제어 도구 연동" },
