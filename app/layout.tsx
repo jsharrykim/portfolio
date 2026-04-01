@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "김정수 — Product Manager / Product Lead",
   description: "8년간 게임·교육·핀테크 도메인에서 문제를 정의하고, 팀을 움직여 비즈니스 성과로 연결해온 PM입니다.",
   keywords: ["PM", "PO", "Product Manager", "Product Lead", "김정수", "포트폴리오"],
+  icons: {
+    icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💧</text></svg>",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
