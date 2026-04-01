@@ -303,15 +303,15 @@ export const projects: Project[] = [
     },
     referenceImages: [
       {
-        url: "/코드스테이츠_사이드프로젝트/스크린샷 2023-02-25 오후 3.30.39.png",
+        url: "/codestates_sideproject/sideproject-gather.png",
         caption: "사이드 프로젝트 - Gather.town 가상 오피스 활동 화면"
       },
       {
-        url: "/코드스테이츠_사이드프로젝트/스크린샷 2023-02-25 오후 3.32.48.png",
+        url: "/codestates_sideproject/sideproject-demoday.png",
         caption: "사이드 프로젝트 - 데모데이 발표 및 네트워킹 현장"
       },
       {
-        url: "/코드스테이츠_사이드프로젝트/사프결과물평가지.png",
+        url: "/codestates_sideproject/sideproject-evaluation.png",
         caption: "사이드 프로젝트 - 결과물 평가 및 피드백 세션"
       }
     ],
@@ -347,26 +347,26 @@ export const projects: Project[] = [
     },
     referenceImages: [
       {
-        url: "/buildmusic/스크린샷 2023-03-05 오후 11.59.54.png",
+        url: "/buildmusic/buildmusic-mvp-ui.png",
         caption: "Buildmusic - MVP UI Design"
       },
       {
-        url: "/buildmusic/홈(Home)_v2.png",
+        url: "/buildmusic/buildmusic-home-v2.png",
         caption: "Buildmusic - MVP 화면 설계: 홈",
         halfWidth: true
       },
       {
-        url: "/buildmusic/프로젝트 생성 상세 페이지.png",
+        url: "/buildmusic/buildmusic-project-create.png",
         caption: "Buildmusic - MVP 화면 설계: 프로젝트 생성",
         halfWidth: true
       },
       {
-        url: "/buildmusic/프로젝트(상세)_곡 선택 시.png",
+        url: "/buildmusic/buildmusic-project-select.png",
         caption: "Buildmusic - MVP 화면 설계: 프로젝트(곡 선택)",
         halfWidth: true
       },
       {
-        url: "/buildmusic/프로젝트(상세)_확정_v2.png",
+        url: "/buildmusic/buildmusic-project-confirm.png",
         caption: "Buildmusic - MVP 화면 설계: 프로젝트 확정",
         halfWidth: true
       }
@@ -396,19 +396,19 @@ export const projects: Project[] = [
     },
     referenceImages: [
       {
-        url: "/LMS/메인페이지 2.png",
+        url: "/LMS/lms-main.png",
         caption: "BOWL LMS - 어드민 메인 대시보드 화면"
       },
       {
-        url: "/LMS/프로그램 상세 페이지 1.png",
+        url: "/LMS/lms-program-detail.png",
         caption: "BOWL LMS - 모듈화된 프로그램 상세 관리 화면"
       },
       {
-        url: "/LMS/Frame 14812.png",
+        url: "/LMS/lms-frame-14812.png",
         caption: "BOWL LMS - 콘텐츠 및 진도율 트래킹 구조"
       },
       {
-        url: "/LMS/Frame 1893-1.png",
+        url: "/LMS/lms-frame-1893.png",
         caption: "BOWL LMS - 콘텐츠 관리 인터페이스"
       }
     ]
