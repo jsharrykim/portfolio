@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, getProjectById, competencies } from "@/data/portfolio";
+import type { ProjectCycle } from "@/data/portfolio";
 import { ProjectImage, AgenticStudioArchitectureRef, StudioOptimizationDashboardRef, StudioOptimizationDashboardRef2, StudioOptimizationDashboardRef3 } from "@/components/ProjectImage";
 import type { Metadata } from "next";
 
@@ -49,11 +50,37 @@ function getAdjacent(projectId: string) {
   return { prev: idx > 0 ? getProjectById(ids[idx - 1]) : null, next: idx < ids.length - 1 ? getProjectById(ids[idx + 1]) : null };
 }
 
-function Section({ label, content }: { label: string; content: string }) {
+function Section({ label, content }: { label: string; content?: string }) {
+  if (!content) return null;
   return (
     <div style={{ padding: "28px 0", borderBottom: "1px solid #f3f4f6" }}>
       <p style={{ fontSize: "11px", fontWeight: 700, color: "#2563eb", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px" }}>{label}</p>
       <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.8, whiteSpace: "pre-line" }}>{content}</p>
+    </div>
+  );
+}
+
+function CycleCard({ cycle, isLast }: { cycle: ProjectCycle; isLast: boolean }) {
+  return (
+    <div style={{ position: "relative", paddingLeft: "22px", paddingBottom: isLast ? "0" : "28px" }}>
+      <span style={{ position: "absolute", left: 0, top: "7px", width: "9px", height: "9px", borderRadius: "999px", backgroundColor: "#2563eb" }} />
+      {!isLast && <span style={{ position: "absolute", left: "4px", top: "20px", bottom: 0, width: "1px", backgroundColor: "#e5e7eb" }} />}
+
+      <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", gap: "8px", marginBottom: "6px" }}>
+        <span style={{ fontSize: "11px", fontWeight: 800, color: "#2563eb", letterSpacing: "0.08em" }}>{cycle.no}</span>
+        <span style={{ fontSize: "12px", color: "#9ca3af" }}>{cycle.period}</span>
+      </div>
+      <p style={{ fontSize: "17px", fontWeight: 800, color: "#1b2b4b", lineHeight: 1.4, letterSpacing: "-0.01em", marginBottom: "8px" }}>{cycle.title}</p>
+      <span style={{ display: "inline-block", fontSize: "11px", fontWeight: 700, color: "#92400e", backgroundColor: "#fef3c7", borderRadius: "999px", padding: "4px 11px", marginBottom: "16px" }}>{cycle.status}</span>
+
+      <div style={{ border: "1px solid #e5e7eb", borderRadius: "12px", padding: "4px 20px", backgroundColor: "#fcfcfb" }}>
+        {cycle.blocks.map((block, i) => (
+          <div key={block.label} style={{ padding: "18px 0", borderBottom: i === cycle.blocks.length - 1 ? "none" : "1px solid #f0efec" }}>
+            <p style={{ fontSize: "11px", fontWeight: 700, color: "#6b7280", letterSpacing: "0.08em", marginBottom: "8px" }}>{block.label}</p>
+            <p style={{ fontSize: "14.5px", color: "#374151", lineHeight: 1.8, whiteSpace: "pre-line" }}>{block.body}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -113,10 +140,21 @@ export default async function ProjectPage({ params }: Props) {
         {/* Case study */}
         <div style={{ border: "1px solid #e5e7eb", borderRadius: "16px", padding: "0 28px" }}>
           <Section label="배경 (Context)" content={project.sections.context} />
+          <Section label="목표 (Goal)" content={project.sections.goal} />
           <Section label="문제 정의 (Problem)" content={project.sections.problem} />
           <Section label="가설 (Hypothesis)" content={project.sections.hypothesis} />
           <Section label="실행 (Execution)" content={project.sections.execution} />
           <Section label="결과 (Result)" content={project.sections.result} />
+          {project.cycles?.length ? (
+            <div style={{ padding: "28px 0", borderBottom: "1px solid #f3f4f6" }}>
+              <p style={{ fontSize: "11px", fontWeight: 700, color: "#2563eb", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "6px" }}>실험 사이클 (Iterations)</p>
+              <p style={{ fontSize: "13px", color: "#9ca3af", lineHeight: 1.6, marginBottom: "24px" }}>목표에 도달하기 위해 문제 정의 → 가설 → 실행 → 결과 → 회고를 반복한 기록입니다.</p>
+              {project.cycles.map((cycle, i) => (
+                <CycleCard key={cycle.no} cycle={cycle} isLast={i === project.cycles!.length - 1} />
+              ))}
+            </div>
+          ) : null}
+          <Section label="현재 상황 (Where We Are Now)" content={project.currentStatus} />
           <div style={{ padding: "28px 0", borderBottom: (project.references?.length || project.referenceImages?.length || project.referenceComponents?.length) ? "1px solid #f3f4f6" : "none" }}>
             <p style={{ fontSize: "11px", fontWeight: 700, color: "#2563eb", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px" }}>배운점 (Lesson Learned)</p>
             <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.8, whiteSpace: "pre-line" }}>{project.sections.learning}</p>
