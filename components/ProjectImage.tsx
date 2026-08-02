@@ -106,25 +106,27 @@ export function StudioMetricsImage({ style }: Props) {
 // ─── 2b. Creator Funnel Dashboard ───────────────────────────────
 export function CreatorDashboardImage({ style }: Props) {
   const funnel = [
-    { label: "스튜디오 로그인", value: "2,398", w: 700, col: "rgba(59,130,246,0.45)" },
-    { label: "에디터 진입", value: "1,652", w: 482, col: "rgba(59,130,246,0.34)" },
-    { label: "첫 편집", value: "739  ·  31%", w: 216, col: "rgba(124,58,237,0.42)" },
-    { label: "첫 퍼블리시", value: "149  ·  6%", w: 62, col: "rgba(34,197,94,0.5)" },
+    { label: "스튜디오 로그인", value: "기준선 100%", w: 700, col: "rgba(59,130,246,0.45)" },
+    { label: "에디터 진입", value: "전환율", w: 482, col: "rgba(59,130,246,0.34)" },
+    { label: "첫 편집", value: "전환율", w: 264, col: "rgba(124,58,237,0.42)" },
+    { label: "첫 퍼블리시", value: "전환율", w: 132, col: "rgba(34,197,94,0.5)" },
+    { label: "업데이트 (재출시)", value: "전환율", w: 66, col: "rgba(34,197,94,0.34)" },
   ];
   return (
     <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", display: "block", borderRadius: "10px", ...style }}>
       <rect width="800" height="450" fill="#0d1b2a" />
       <rect x="0" y="0" width="800" height="48" fill="rgba(255,255,255,0.03)" />
-      <text x="32" y="30" fill="rgba(255,255,255,0.4)" fontSize="12" fontWeight="600" fontFamily="system-ui, sans-serif">Creator Funnel — 실측 스냅샷</text>
-      <text x="768" y="29" fill="rgba(255,255,255,0.22)" fontSize="10" textAnchor="end" fontFamily="system-ui, sans-serif">Snowflake MART_PROD</text>
+      <text x="32" y="30" fill="rgba(255,255,255,0.4)" fontSize="12" fontWeight="600" fontFamily="system-ui, sans-serif">Creator Funnel — 단계 정의 구성</text>
+      <text x="768" y="29" fill="rgba(234,179,8,0.7)" fontSize="10" textAnchor="end" fontFamily="system-ui, sans-serif">실제 운영 수치 제외 · 더미 데이터</text>
 
       {funnel.map((row, i) => (
         <g key={row.label}>
-          <rect x="32" y={76 + i * 52} width={row.w} height="34" rx="6" fill={row.col} />
-          <text x="44" y={98 + i * 52} fill="rgba(255,255,255,0.9)" fontSize="12" fontWeight="600" fontFamily="system-ui, sans-serif">{row.label}</text>
-          <text x={Math.max(row.w + 12, 120)} y={98 + i * 52} fill="rgba(255,255,255,0.45)" fontSize="12" fontFamily="system-ui, sans-serif">{row.value}</text>
+          <rect x="32" y={70 + i * 46} width={row.w} height="32" rx="6" fill={row.col} />
+          <text x="44" y={91 + i * 46} fill="rgba(255,255,255,0.9)" fontSize="12" fontWeight="600" fontFamily="system-ui, sans-serif">{row.label}</text>
+          <text x={Math.max(row.w + 12, 160)} y={91 + i * 46} fill="rgba(255,255,255,0.28)" fontSize="11" fontFamily="system-ui, sans-serif">{row.value}</text>
         </g>
       ))}
+      <text x="32" y="300" fill="rgba(255,255,255,0.22)" fontSize="10" fontFamily="system-ui, sans-serif">계정별 각 단계 최초 도달일 기준 · 가입 단계는 커버리지 부족으로 제외</text>
 
       <text x="32" y="316" fill="rgba(255,255,255,0.18)" fontSize="10" fontFamily="system-ui, sans-serif">지표 32개 측정 가능 여부 감사</text>
       {[
@@ -140,7 +142,7 @@ export function CreatorDashboardImage({ style }: Props) {
       ))}
 
       <rect x="32" y="398" width="736" height="30" rx="6" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.25)" strokeWidth="1" />
-      <text x="46" y="418" fill="rgba(248,150,150,0.8)" fontSize="11" fontFamily="system-ui, sans-serif">철회 — &quot;소비되는 월드 13.7%&quot;는 누적 등재 월드를 분모로 쓴 잘못된 값 → 절대 수(159개)로 대체</text>
+      <text x="46" y="418" fill="rgba(248,150,150,0.8)" fontSize="11" fontFamily="system-ui, sans-serif">철회 — &quot;소비되는 월드 비율&quot;은 누적 등재 월드를 분모로 쓴 잘못된 값 → 플레이된 월드 절대 수로 대체</text>
     </svg>
   );
 }
@@ -546,7 +548,7 @@ export function CreatorHubImage({ style }: Props) {
       <rect width="800" height="450" fill="#0f0a1e" />
       <rect x="0" y="0" width="176" height="450" fill="rgba(255,255,255,0.03)" />
       <text x="22" y="38" fill="rgba(255,255,255,0.55)" fontSize="13" fontWeight="700" fontFamily="system-ui, sans-serif">Creator Hub</text>
-      {["대시보드", "내 월드", "애널리틱스", "수익 정산"].map((item, i) => (
+      {["대시보드", "내 월드", "애널리틱스", "콘텐츠 관리"].map((item, i) => (
         <g key={i}>
           <rect x="8" y={54 + i * 40} width="160" height="34" rx="6" fill={i === 2 ? "rgba(124,58,237,0.2)" : "transparent"} />
           <text x="22" y={76 + i * 40} fill={i === 2 ? "rgba(167,139,250,0.9)" : "rgba(255,255,255,0.3)"} fontSize="12" fontFamily="system-ui, sans-serif">{item}</text>
@@ -556,7 +558,7 @@ export function CreatorHubImage({ style }: Props) {
       {[
         { x: 200, label: "일간 방문자", value: "12,847", change: "+23%" },
         { x: 394, label: "D+1 Retention", value: "31.2%", change: "+6.2%p" },
-        { x: 588, label: "누적 수익", value: "$2,410", change: "→ 정산" },
+        { x: 588, label: "평균 세션 시간", value: "8m 12s", change: "+11%" },
       ].map((card) => (
         <g key={card.x}>
           <rect x={card.x} y="46" width="178" height="72" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
@@ -569,7 +571,7 @@ export function CreatorHubImage({ style }: Props) {
       {["Jan","Feb","Mar","Apr","May","Jun"].map((m, i) => (
         <text key={m} x={200 + i * 94} y={380} fill="rgba(255,255,255,0.18)" fontSize="10" fontFamily="system-ui, sans-serif">{m}</text>
       ))}
-      <text x="480" y="416" fill="rgba(167,139,250,0.85)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">크리에이터 온보딩 · Stripe Connect 수익화 · 알파 테스트 런칭</text>
+      <text x="480" y="416" fill="rgba(167,139,250,0.85)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">크리에이터 온보딩 · 콘텐츠 등록/게시 · 성과 애널리틱스 · 얼리엑세스 런칭</text>
     </svg>
   );
 }

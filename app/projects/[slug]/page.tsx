@@ -90,9 +90,27 @@ export default async function ProjectPage({ params }: Props) {
         </div>
 
         {/* Image */}
-        <div style={{ marginBottom: "40px" }}>
+        <div style={{ marginBottom: project.confidentialityNote ? "16px" : "40px" }}>
           <ProjectImage projectId={project.id} />
         </div>
+
+        {project.confidentialityNote && (
+          <div
+            style={{
+              display: "flex",
+              gap: "10px",
+              alignItems: "flex-start",
+              backgroundColor: "#fffbeb",
+              border: "1px solid #fde68a",
+              borderRadius: "10px",
+              padding: "14px 16px",
+              marginBottom: "36px",
+            }}
+          >
+            <span style={{ fontSize: "13px", lineHeight: 1.6 }}>🔒</span>
+            <p style={{ fontSize: "13px", color: "#92400e", lineHeight: 1.65 }}>{project.confidentialityNote}</p>
+          </div>
+        )}
 
         {/* Summary */}
         <div style={{ backgroundColor: "#f9f8f6", borderRadius: "14px", padding: "22px 26px", marginBottom: "36px" }}>
