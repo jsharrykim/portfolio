@@ -103,50 +103,6 @@ export function StudioMetricsImage({ style }: Props) {
   );
 }
 
-// ─── 2b. Creator Funnel Dashboard ───────────────────────────────
-export function CreatorDashboardImage({ style }: Props) {
-  const funnel = [
-    { label: "스튜디오 로그인", value: "기준선 100%", w: 700, col: "rgba(59,130,246,0.45)" },
-    { label: "에디터 진입", value: "전환율", w: 482, col: "rgba(59,130,246,0.34)" },
-    { label: "첫 편집", value: "전환율", w: 264, col: "rgba(124,58,237,0.42)" },
-    { label: "첫 퍼블리시", value: "전환율", w: 132, col: "rgba(34,197,94,0.5)" },
-    { label: "업데이트 (재출시)", value: "전환율", w: 66, col: "rgba(34,197,94,0.34)" },
-  ];
-  return (
-    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", display: "block", borderRadius: "10px", ...style }}>
-      <rect width="800" height="450" fill="#0d1b2a" />
-      <rect x="0" y="0" width="800" height="48" fill="rgba(255,255,255,0.03)" />
-      <text x="32" y="30" fill="rgba(255,255,255,0.4)" fontSize="12" fontWeight="600" fontFamily="system-ui, sans-serif">Creator Funnel — 단계 정의 구성</text>
-      <text x="768" y="29" fill="rgba(234,179,8,0.7)" fontSize="10" textAnchor="end" fontFamily="system-ui, sans-serif">실제 운영 수치 제외 · 더미 데이터</text>
-
-      {funnel.map((row, i) => (
-        <g key={row.label}>
-          <rect x="32" y={70 + i * 46} width={row.w} height="32" rx="6" fill={row.col} />
-          <text x="44" y={91 + i * 46} fill="rgba(255,255,255,0.9)" fontSize="12" fontWeight="600" fontFamily="system-ui, sans-serif">{row.label}</text>
-          <text x={Math.max(row.w + 12, 160)} y={91 + i * 46} fill="rgba(255,255,255,0.28)" fontSize="11" fontFamily="system-ui, sans-serif">{row.value}</text>
-        </g>
-      ))}
-      <text x="32" y="300" fill="rgba(255,255,255,0.22)" fontSize="10" fontFamily="system-ui, sans-serif">계정별 각 단계 최초 도달일 기준 · 가입 단계는 커버리지 부족으로 제외</text>
-
-      <text x="32" y="316" fill="rgba(255,255,255,0.18)" fontSize="10" fontFamily="system-ui, sans-serif">지표 32개 측정 가능 여부 감사</text>
-      {[
-        { x: 32, w: 152, label: "실측", n: "7", col: "rgba(34,197,94,0.55)", sub: "정의 그대로" },
-        { x: 200, w: 216, label: "주의", n: "10", col: "rgba(234,179,8,0.5)", sub: "정의 대체 · 표본 한계" },
-        { x: 432, w: 336, label: "측정 불가", n: "17", col: "rgba(239,68,68,0.4)", sub: "로그 · 그레인 부재" },
-      ].map((b) => (
-        <g key={b.label}>
-          <rect x={b.x} y="330" width={b.w} height="52" rx="8" fill={b.col} />
-          <text x={b.x + 14} y="352" fill="rgba(255,255,255,0.92)" fontSize="12" fontWeight="700" fontFamily="system-ui, sans-serif">{b.label} {b.n}</text>
-          <text x={b.x + 14} y="370" fill="rgba(255,255,255,0.55)" fontSize="10" fontFamily="system-ui, sans-serif">{b.sub}</text>
-        </g>
-      ))}
-
-      <rect x="32" y="398" width="736" height="30" rx="6" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.25)" strokeWidth="1" />
-      <text x="46" y="418" fill="rgba(248,150,150,0.8)" fontSize="11" fontFamily="system-ui, sans-serif">철회 — &quot;소비되는 월드 비율&quot;은 누적 등재 월드를 분모로 쓴 잘못된 값 → 플레이된 월드 절대 수로 대체</text>
-    </svg>
-  );
-}
-
 // ─── 2c. Product Narrative ──────────────────────────────────────
 export function StudioNarrativeImage({ style }: Props) {
   return (
@@ -844,7 +800,6 @@ export function ProjectImage({ projectId, style }: { projectId: string; style?: 
   switch (projectId) {
     case "studio-optimization": return <StudioOptimizationImage style={style} />;
     case "studio-metrics": return <StudioMetricsImage style={style} />;
-    case "creator-dashboard": return <CreatorDashboardImage style={style} />;
     case "studio-narrative": return <StudioNarrativeImage style={style} />;
     case "agentic-studio-tf": return <AgenticStudioImage style={style} />;
     case "product-split": return <ProductSplitImage style={style} />;
