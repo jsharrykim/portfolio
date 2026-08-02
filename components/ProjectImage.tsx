@@ -103,7 +103,90 @@ export function StudioMetricsImage({ style }: Props) {
   );
 }
 
-// ─── 3. Agentic Studio TF ─────────────────────────────────────────
+// ─── 2b. Creator Funnel Dashboard ───────────────────────────────
+export function CreatorDashboardImage({ style }: Props) {
+  const funnel = [
+    { label: "스튜디오 로그인", value: "2,398", w: 700, col: "rgba(59,130,246,0.45)" },
+    { label: "에디터 진입", value: "1,652", w: 482, col: "rgba(59,130,246,0.34)" },
+    { label: "첫 편집", value: "739  ·  31%", w: 216, col: "rgba(124,58,237,0.42)" },
+    { label: "첫 퍼블리시", value: "149  ·  6%", w: 62, col: "rgba(34,197,94,0.5)" },
+  ];
+  return (
+    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", display: "block", borderRadius: "10px", ...style }}>
+      <rect width="800" height="450" fill="#0d1b2a" />
+      <rect x="0" y="0" width="800" height="48" fill="rgba(255,255,255,0.03)" />
+      <text x="32" y="30" fill="rgba(255,255,255,0.4)" fontSize="12" fontWeight="600" fontFamily="system-ui, sans-serif">Creator Funnel — 실측 스냅샷</text>
+      <text x="768" y="29" fill="rgba(255,255,255,0.22)" fontSize="10" textAnchor="end" fontFamily="system-ui, sans-serif">Snowflake MART_PROD</text>
+
+      {funnel.map((row, i) => (
+        <g key={row.label}>
+          <rect x="32" y={76 + i * 52} width={row.w} height="34" rx="6" fill={row.col} />
+          <text x="44" y={98 + i * 52} fill="rgba(255,255,255,0.9)" fontSize="12" fontWeight="600" fontFamily="system-ui, sans-serif">{row.label}</text>
+          <text x={Math.max(row.w + 12, 120)} y={98 + i * 52} fill="rgba(255,255,255,0.45)" fontSize="12" fontFamily="system-ui, sans-serif">{row.value}</text>
+        </g>
+      ))}
+
+      <text x="32" y="316" fill="rgba(255,255,255,0.18)" fontSize="10" fontFamily="system-ui, sans-serif">지표 32개 측정 가능 여부 감사</text>
+      {[
+        { x: 32, w: 152, label: "실측", n: "7", col: "rgba(34,197,94,0.55)", sub: "정의 그대로" },
+        { x: 200, w: 216, label: "주의", n: "10", col: "rgba(234,179,8,0.5)", sub: "정의 대체 · 표본 한계" },
+        { x: 432, w: 336, label: "측정 불가", n: "17", col: "rgba(239,68,68,0.4)", sub: "로그 · 그레인 부재" },
+      ].map((b) => (
+        <g key={b.label}>
+          <rect x={b.x} y="330" width={b.w} height="52" rx="8" fill={b.col} />
+          <text x={b.x + 14} y="352" fill="rgba(255,255,255,0.92)" fontSize="12" fontWeight="700" fontFamily="system-ui, sans-serif">{b.label} {b.n}</text>
+          <text x={b.x + 14} y="370" fill="rgba(255,255,255,0.55)" fontSize="10" fontFamily="system-ui, sans-serif">{b.sub}</text>
+        </g>
+      ))}
+
+      <rect x="32" y="398" width="736" height="30" rx="6" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.25)" strokeWidth="1" />
+      <text x="46" y="418" fill="rgba(248,150,150,0.8)" fontSize="11" fontFamily="system-ui, sans-serif">철회 — &quot;소비되는 월드 13.7%&quot;는 누적 등재 월드를 분모로 쓴 잘못된 값 → 절대 수(159개)로 대체</text>
+    </svg>
+  );
+}
+
+// ─── 2c. Product Narrative ──────────────────────────────────────
+export function StudioNarrativeImage({ style }: Props) {
+  return (
+    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", display: "block", borderRadius: "10px", ...style }}>
+      <rect width="800" height="450" fill="#0d1b2a" />
+      <text x="32" y="46" fill="rgba(255,255,255,0.4)" fontSize="12" fontWeight="600" fontFamily="system-ui, sans-serif">우리는 왜 이렇게 만드는가</text>
+
+      <rect x="32" y="66" width="736" height="42" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+      <text x="46" y="92" fill="rgba(255,255,255,0.35)" fontSize="12" fontFamily="system-ui, sans-serif">로블록스인가 · 언리얼인가 · 자체 UX인가 · AI 방식인가  →  매 아젠다마다 처음부터 재논쟁</text>
+
+      <text x="400" y="132" fill="rgba(255,255,255,0.2)" fontSize="16" textAnchor="middle" fontFamily="system-ui, sans-serif">↓</text>
+
+      {[
+        { x: 32, n: "①", t: "타겟 장르 기여", d: "액션 · 슈팅 · 스포츠에서\n더 잘 만들 수 있게 하는가", col: "rgba(59,130,246,0.5)" },
+        { x: 282, n: "②", t: "구조 결정", d: "크리에이터 친숙도 유지 vs\n언리얼 구조적 우위", col: "rgba(124,58,237,0.5)" },
+        { x: 532, n: "③", t: "Agent 호환성", d: "그 구조를 Agent가\n자연스럽게 쓸 수 있는가", col: "rgba(34,197,94,0.5)" },
+      ].map((c) => (
+        <g key={c.n}>
+          <rect x={c.x} y="150" width="236" height="112" rx="10" fill="rgba(255,255,255,0.04)" stroke={c.col} strokeWidth="1" />
+          <text x={c.x + 16} y="176" fill={c.col} fontSize="15" fontWeight="900" fontFamily="system-ui, sans-serif">{c.n}</text>
+          <text x={c.x + 40} y="176" fill="rgba(255,255,255,0.85)" fontSize="13" fontWeight="700" fontFamily="system-ui, sans-serif">{c.t}</text>
+          {c.d.split("\n").map((line, i) => (
+            <text key={i} x={c.x + 16} y={206 + i * 18} fill="rgba(255,255,255,0.35)" fontSize="11" fontFamily="system-ui, sans-serif">{line}</text>
+          ))}
+        </g>
+      ))}
+
+      <text x="32" y="300" fill="rgba(255,255,255,0.18)" fontSize="10" fontFamily="system-ui, sans-serif">크리에이터 2트랙 전략</text>
+      <rect x="32" y="312" width="360" height="102" rx="10" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.22)" strokeWidth="1" />
+      <text x="48" y="338" fill="rgba(255,255,255,0.8)" fontSize="13" fontWeight="700" fontFamily="system-ui, sans-serif">Editor 트랙 — 전문 크리에이터</text>
+      <text x="48" y="362" fill="rgba(255,255,255,0.38)" fontSize="11" fontFamily="system-ui, sans-serif">고퀄리티 게임이 유저를 끌어온다</text>
+      <text x="48" y="392" fill="rgba(147,180,245,0.75)" fontSize="11" fontFamily="system-ui, sans-serif">품질 기준 · 후킹 · Agent의 목표점</text>
+
+      <rect x="408" y="312" width="360" height="102" rx="10" fill="rgba(34,197,94,0.09)" stroke="rgba(34,197,94,0.22)" strokeWidth="1" />
+      <text x="424" y="338" fill="rgba(255,255,255,0.8)" fontSize="13" fontWeight="700" fontFamily="system-ui, sans-serif">Agent 트랙 — 비개발자</text>
+      <text x="424" y="362" fill="rgba(255,255,255,0.38)" fontSize="11" fontFamily="system-ui, sans-serif">콘텐츠 양이 생동감을 만든다</text>
+      <text x="424" y="392" fill="rgba(134,222,167,0.7)" fontSize="11" fontFamily="system-ui, sans-serif">공급량 · 저변 확대 · 플랫폼 활력</text>
+    </svg>
+  );
+}
+
+// ─── 3. Agentic Studio ─────────────────────────────────────────
 export function AgenticStudioImage({ style }: Props) {
   return (
     <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", display: "block", borderRadius: "10px", ...style }}>
@@ -127,7 +210,7 @@ export function AgenticStudioImage({ style }: Props) {
       </rect>
       <rect x="488" y="52" width="288" height="375" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
       <text x="632" y="84" fill="rgba(255,255,255,0.35)" fontSize="11" fontWeight="600" textAnchor="middle" letterSpacing="2" fontFamily="system-ui, sans-serif">AGENT STATUS</text>
-      <text x="632" y="138" fill="rgba(59,130,246,0.9)" fontSize="52" fontWeight="900" textAnchor="middle" fontFamily="system-ui, sans-serif">21</text>
+      <text x="632" y="138" fill="rgba(59,130,246,0.9)" fontSize="52" fontWeight="900" textAnchor="middle" fontFamily="system-ui, sans-serif">20</text>
       <text x="632" y="160" fill="rgba(255,255,255,0.25)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">Studio 제어 도구 연동</text>
       <line x1="506" y1="178" x2="758" y2="178" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
       {[
@@ -352,56 +435,67 @@ export function StudioOptimizationDashboardRef3({ style }: Props) {
 }
 
 export function AgenticStudioArchitectureRef({ style }: Props) {
+  const font = "system-ui, sans-serif";
   return (
-    <svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", display: "block", borderRadius: "10px", backgroundColor: "#080f1a", ...style }}>
-      <rect width="800" height="350" fill="#080f1a" rx="10" />
-      
+    <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", display: "block", borderRadius: "10px", backgroundColor: "#080f1a", ...style }}>
+      <rect width="800" height="360" fill="#080f1a" rx="10" />
+
       {/* Title */}
-      <text x="400" y="40" fill="rgba(255,255,255,0.7)" fontSize="15" fontWeight="700" textAnchor="middle" letterSpacing="1" fontFamily="system-ui, sans-serif">Agentic Studio Phase 1 — 3단 아키텍처</text>
-      
-      {/* Connection Lines & Arrows */}
-      <g stroke="rgba(255,255,255,0.2)" strokeWidth="2" strokeDasharray="4,4" fill="none">
-        <path d="M 230 180 L 320 180" />
-        <path d="M 480 180 L 570 180" />
-      </g>
-      
-      <g fill="rgba(255,255,255,0.3)">
-        <polygon points="315,176 323,180 315,184" />
-        <polygon points="235,176 227,180 235,184" />
-        <polygon points="565,176 573,180 565,184" />
-        <polygon points="485,176 477,180 485,184" />
-      </g>
+      <text x="400" y="36" fill="rgba(255,255,255,0.65)" fontSize="14" fontWeight="700" textAnchor="middle" letterSpacing="1" fontFamily={font}>Phase 1 동작 구조</text>
 
-      <text x="275" y="165" fill="rgba(255,255,255,0.4)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">STDIO 통신</text>
-      <text x="525" y="165" fill="rgba(255,255,255,0.4)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">TCP / JSON-RPC</text>
+      {/* ── Left Block: AI Agent ── */}
+      <rect x="30" y="60" width="190" height="210" rx="14" fill="rgba(59,130,246,0.07)" stroke="rgba(59,130,246,0.4)" strokeWidth="1.5" />
+      <text x="125" y="90" fill="rgba(59,130,246,0.9)" fontSize="13" fontWeight="800" textAnchor="middle" fontFamily={font}>① 뇌 — AI Agent</text>
+      {[
+        ["요청 이해 · 계획 수립", "rgba(255,255,255,0.5)"],
+        ["도구 선택 · 순서 결정", "rgba(255,255,255,0.5)"],
+        ["결과 확인 · 재시도", "rgba(255,255,255,0.5)"],
+        ["대화 맥락 기억", "rgba(255,255,255,0.5)"],
+        ["33가지 도구 보유", "rgba(96,165,250,0.85)"],
+      ].map(([label, color], i) => (
+        <text key={i} x="125" y={122 + i * 26} fill={color} fontSize="12" textAnchor="middle" fontFamily={font}>{label}</text>
+      ))}
 
-      {/* Block 1: 뇌 */}
-      <rect x="50" y="110" width="180" height="140" rx="16" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.4)" strokeWidth="1.5" />
-      <text x="140" y="145" fill="rgba(59,130,246,0.9)" fontSize="15" fontWeight="800" textAnchor="middle" fontFamily="system-ui, sans-serif">① 뇌 (Brain)</text>
-      <text x="140" y="175" fill="white" fontSize="20" fontWeight="900" textAnchor="middle" fontFamily="system-ui, sans-serif">OVERDARE Agent</text>
-      <rect x="70" y="195" width="140" height="40" rx="6" fill="rgba(0,0,0,0.4)" />
-      <text x="140" y="213" fill="rgba(255,255,255,0.6)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">자체 Agent Loop 제어</text>
-      <text x="140" y="228" fill="rgba(255,255,255,0.6)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">컨텍스트 &amp; 세션 관리</text>
+      {/* ── Center Arrow ── */}
+      <line x1="220" y1="165" x2="300" y2="165" stroke="rgba(255,255,255,0.25)" strokeWidth="2" />
+      <polygon points="295,160 307,165 295,170" fill="rgba(255,255,255,0.4)" />
+      <text x="263" y="155" fill="rgba(255,255,255,0.4)" fontSize="10" fontWeight="600" textAnchor="middle" fontFamily={font}>명령 전달</text>
 
-      {/* Block 2: 손발 */}
-      <rect x="320" y="110" width="160" height="140" rx="16" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.4)" strokeWidth="1.5" />
-      <text x="400" y="145" fill="rgba(168,85,247,0.9)" fontSize="15" fontWeight="800" textAnchor="middle" fontFamily="system-ui, sans-serif">② 손발 (Tools)</text>
-      <text x="400" y="175" fill="white" fontSize="18" fontWeight="900" textAnchor="middle" fontFamily="system-ui, sans-serif">MCP Server</text>
-      <rect x="340" y="195" width="120" height="40" rx="6" fill="rgba(0,0,0,0.4)" />
-      <text x="400" y="213" fill="rgba(255,255,255,0.6)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">명령 번역 다리</text>
-      <text x="400" y="228" fill="rgba(34,197,94,0.8)" fontSize="11" fontWeight="700" textAnchor="middle" fontFamily="system-ui, sans-serif">21개 제어 도구</text>
+      {/* ── Right Block: Studio ── */}
+      <rect x="308" y="60" width="462" height="260" rx="14" fill="rgba(34,197,94,0.05)" stroke="rgba(34,197,94,0.35)" strokeWidth="1.5" />
+      <text x="539" y="90" fill="rgba(34,197,94,0.85)" fontSize="13" fontWeight="800" textAnchor="middle" fontFamily={font}>② 몸 — OVERDARE Studio</text>
 
-      {/* Block 3: 몸 */}
-      <rect x="570" y="110" width="180" height="140" rx="16" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.4)" strokeWidth="1.5" />
-      <text x="660" y="145" fill="rgba(34,197,94,0.9)" fontSize="15" fontWeight="800" textAnchor="middle" fontFamily="system-ui, sans-serif">③ 몸 (Body)</text>
-      <text x="660" y="175" fill="white" fontSize="20" fontWeight="900" textAnchor="middle" fontFamily="system-ui, sans-serif">OVERDARE Studio</text>
-      <rect x="590" y="195" width="140" height="40" rx="6" fill="rgba(0,0,0,0.4)" />
-      <text x="660" y="213" fill="rgba(255,255,255,0.6)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">실제 게임 실행 환경</text>
-      <text x="660" y="228" fill="rgba(255,255,255,0.6)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">오브젝트 &amp; 스크립트 제어</text>
-      
-      {/* Footer Info */}
-      <rect x="200" y="280" width="400" height="36" rx="18" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-      <text x="400" y="303" fill="rgba(255,255,255,0.6)" fontSize="13" textAnchor="middle" fontFamily="system-ui, sans-serif">별도 설치 없이 <tspan fill="rgba(59,130,246,0.9)" fontWeight="700">버튼 하나로 동작</tspan>하는 자체 내장 환경 실증 완료</text>
+      {/* Inner: 명령 수신 레이어 */}
+      <rect x="326" y="102" width="426" height="52" rx="10" fill="rgba(168,85,247,0.1)" stroke="rgba(168,85,247,0.35)" strokeWidth="1.2" />
+      <text x="539" y="122" fill="rgba(168,85,247,0.9)" fontSize="12" fontWeight="800" textAnchor="middle" fontFamily={font}>명령 수신 레이어 (Studio 내장)</text>
+      <text x="539" y="142" fill="rgba(255,255,255,0.4)" fontSize="11" textAnchor="middle" fontFamily={font}>AI 명령을 받아 두 가지 실행 경로로 분기</text>
+
+      {/* Split lines */}
+      <line x1="440" y1="154" x2="440" y2="178" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
+      <line x1="638" y1="154" x2="638" y2="178" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
+      <line x1="440" y1="178" x2="638" y2="178" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" />
+      <polygon points="436,174 440,184 444,174" fill="rgba(255,255,255,0.25)" />
+      <polygon points="634,174 638,184 642,174" fill="rgba(255,255,255,0.25)" />
+
+      {/* Path A */}
+      <rect x="326" y="190" width="196" height="110" rx="10" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.3)" strokeWidth="1.2" />
+      <text x="424" y="213" fill="rgba(96,165,250,0.9)" fontSize="12" fontWeight="800" textAnchor="middle" fontFamily={font}>경로 A — 맵 조작</text>
+      <text x="424" y="237" fill="rgba(255,255,255,0.6)" fontSize="11" textAnchor="middle" fontFamily={font}>게임 맵 데이터를 직접 수정</text>
+      <text x="424" y="257" fill="rgba(255,255,255,0.4)" fontSize="11" textAnchor="middle" fontFamily={font}>오브젝트 배치 · 삭제</text>
+      <text x="424" y="275" fill="rgba(255,255,255,0.4)" fontSize="11" textAnchor="middle" fontFamily={font}>스크립트 추가 · 수정</text>
+      <text x="424" y="293" fill="rgba(255,255,255,0.4)" fontSize="11" textAnchor="middle" fontFamily={font}>화면 구성 변경</text>
+
+      {/* Path B */}
+      <rect x="542" y="190" width="218" height="110" rx="10" fill="rgba(251,146,60,0.08)" stroke="rgba(251,146,60,0.3)" strokeWidth="1.2" />
+      <text x="651" y="213" fill="rgba(251,146,60,0.9)" fontSize="12" fontWeight="800" textAnchor="middle" fontFamily={font}>경로 B — 실시간 제어</text>
+      <text x="651" y="237" fill="rgba(255,255,255,0.6)" fontSize="11" textAnchor="middle" fontFamily={font}>Studio 동작을 직접 실행</text>
+      <text x="651" y="257" fill="rgba(255,255,255,0.4)" fontSize="11" textAnchor="middle" fontFamily={font}>게임 실행 · 중지</text>
+      <text x="651" y="275" fill="rgba(255,255,255,0.4)" fontSize="11" textAnchor="middle" fontFamily={font}>플레이 테스트 시작</text>
+      <text x="651" y="293" fill="rgba(255,255,255,0.4)" fontSize="11" textAnchor="middle" fontFamily={font}>오류 로그 확인</text>
+
+      {/* Footer */}
+      <rect x="110" y="332" width="580" height="20" rx="10" fill="rgba(255,255,255,0.03)" />
+      <text x="400" y="346" fill="rgba(255,255,255,0.3)" fontSize="11" textAnchor="middle" fontFamily={font}>Studio 버튼 하나로 실행 — 크리에이터는 별도 설치 없이 채팅창만 열면 됩니다</text>
     </svg>
   );
 }
@@ -435,63 +529,6 @@ export function ProductSplitImage({ style }: Props) {
       <text x="692" y="253" fill="rgba(255,255,255,0.3)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">연간 매출 성장</text>
       <text x="692" y="278" fill="rgba(34,197,94,0.5)" fontSize="12" fontWeight="700" textAnchor="middle" fontFamily="system-ui, sans-serif">240억 규모</text>
       <text x="400" y="398" fill="rgba(255,255,255,0.45)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">수강생 +141% · 지원 전환율 15%→38% · K-digital 선정</text>
-    </svg>
-  );
-}
-
-// ─── 5. Growth Flywheel ──────────────────────────────────────────
-export function GrowthFlywheelImage({ style }: Props) {
-  const font = "system-ui, sans-serif";
-  const arrowStyle = { fill: "none", stroke: "rgba(255,255,255,0.4)", strokeWidth: 2.5 } as const;
-
-  return (
-    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", display: "block", borderRadius: "10px", backgroundColor: "#0d1b2a", overflow: "hidden", ...style }}>
-      <defs>
-        <marker id="gf-arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-          <polygon points="0 0, 10 3.5, 0 7" fill="rgba(255,255,255,0.6)" />
-        </marker>
-      </defs>
-
-      {/* 800x800 원본 좌표계를 카드 비율(800x450) 중앙에 450x450 사이즈로 렌더링 (x=175로 가로 중앙 정렬) */}
-      <svg x="175" y="0" width="450" height="450" viewBox="0 0 800 800" overflow="visible">
-        
-        {/* 1. GROWTH 코어 -> 기준 미달자 Zero 교육 (시작점 변경) */}
-        <path d="M 330 300 Q 210 200 210 110" {...arrowStyle} markerEnd="url(#gf-arrow)" />
-        {/* 2. 기준 미달자 Zero 교육 -> 채용 신뢰도 */}
-        <path d="M 360 85 Q 520 60 610 170" {...arrowStyle} markerEnd="url(#gf-arrow)" />
-        {/* 3. 채용 신뢰도 -> 특혜 기업 */}
-        <path d="M 660 245 Q 730 320 710 420" {...arrowStyle} markerEnd="url(#gf-arrow)" />
-        {/* 4. 특혜 기업 -> 취업 신뢰도 */}
-        <path d="M 680 500 Q 600 680 500 680" {...arrowStyle} markerEnd="url(#gf-arrow)" />
-        {/* 5. 취업 신뢰도 -> 유입 */}
-        <path d="M 340 680 Q 200 660 150 550" {...arrowStyle} markerEnd="url(#gf-arrow)" />
-        {/* 6. 유입 -> 경쟁률 */}
-        <path d="M 140 480 Q 120 400 160 320" {...arrowStyle} markerEnd="url(#gf-arrow)" />
-        {/* 7. 경쟁률 -> 기준 미달자 비율 */}
-        <path d="M 210 240 Q 270 140 330 135" {...arrowStyle} markerEnd="url(#gf-arrow)" />
-        {/* 8. 기준 미달자 비율 -> 채용 신뢰도 (내부 순환) */}
-        <path d="M 515 135 Q 570 150 610 185" {...arrowStyle} markerEnd="url(#gf-arrow)" />
-
-        {/* 중앙 코어 */}
-        <circle cx="400" cy="400" r="150" fill="rgba(220,70,10,0.15)" stroke="rgba(220,70,10,0.5)" strokeWidth="3" />
-        <text x="400" y="400" fill="rgba(255,255,255,0.95)" fontSize="28.8" fontWeight="900" dominantBaseline="middle" textAnchor="middle" letterSpacing="3" fontFamily={font}>GROWTH</text>
-
-        {/* 각 노드 배치 (제공해주신 HTML top, left 좌표를 SVG x, y 기준점으로 완벽 매칭하기 위해 dominantBaseline="hanging" 사용) */}
-        {/* 상단 좌측 (파랑) */}
-        <text x="170" y="75" fill="rgba(96,165,250,0.9)" fontSize="18.4" fontWeight="700" dominantBaseline="hanging" fontFamily={font}>기준 미달자 Zero 교육</text>
-        {/* 상단 중앙 */}
-        <text x="355" y="125" fill="rgba(255,255,255,0.85)" fontSize="18.4" fontWeight="700" dominantBaseline="hanging" fontFamily={font}>기준 미달자 비율 ↓</text>
-        {/* 상단 우측 (빨강) */}
-        <text x="610" y="210" fill="rgba(239,68,68,0.9)" fontSize="18.4" fontWeight="700" dominantBaseline="hanging" fontFamily={font}>채용 신뢰도 ↑</text>
-        {/* 우측 */}
-        <text x="650" y="450" fill="rgba(255,255,255,0.85)" fontSize="18.4" fontWeight="700" dominantBaseline="hanging" fontFamily={font}>수료생 특혜 기업 ↑</text>
-        {/* 하단 */}
-        <text x="380" y="670" fill="rgba(255,255,255,0.85)" fontSize="18.4" fontWeight="700" dominantBaseline="hanging" fontFamily={font}>취업 신뢰도 ↑</text>
-        {/* 좌측 하단 */}
-        <text x="120" y="510" fill="rgba(255,255,255,0.85)" fontSize="18.4" fontWeight="700" dominantBaseline="hanging" fontFamily={font}>유입 ↑</text>
-        {/* 좌측 */}
-        <text x="140" y="265" fill="rgba(255,255,255,0.85)" fontSize="18.4" fontWeight="700" dominantBaseline="hanging" fontFamily={font}>경쟁률 ↑</text>
-      </svg>
     </svg>
   );
 }
@@ -805,9 +842,10 @@ export function ProjectImage({ projectId, style }: { projectId: string; style?: 
   switch (projectId) {
     case "studio-optimization": return <StudioOptimizationImage style={style} />;
     case "studio-metrics": return <StudioMetricsImage style={style} />;
+    case "creator-dashboard": return <CreatorDashboardImage style={style} />;
+    case "studio-narrative": return <StudioNarrativeImage style={style} />;
     case "agentic-studio-tf": return <AgenticStudioImage style={style} />;
     case "product-split": return <ProductSplitImage style={style} />;
-    case "growth-flywheel": return <GrowthFlywheelImage style={style} />;
     case "creator-hub": return <CreatorHubImage style={style} />;
     case "side-project-program": return <SideProjectImage style={style} />;
     case "buildmusic": return <BuildmusicImage style={style} />;

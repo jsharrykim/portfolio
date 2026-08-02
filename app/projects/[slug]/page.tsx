@@ -132,7 +132,7 @@ export default async function ProjectPage({ params }: Props) {
                       <div style={{ borderRadius: "12px", overflow: "hidden", backgroundColor: "#f9f8f6", border: "1px solid #e5e7eb" }}>
                         <AgenticStudioArchitectureRef />
                         <div style={{ padding: "12px 16px", borderTop: "1px solid #e5e7eb", backgroundColor: "#ffffff" }}>
-                          <p style={{ fontSize: "13px", color: "#6b7280", textAlign: "center" }}>Agentic Studio Phase 1 — 3단 아키텍처 (OVERDARE Agent ↔ MCP ↔ Studio)</p>
+                          <p style={{ fontSize: "13px", color: "#6b7280", textAlign: "center" }}>Agentic Studio Phase 1 — AI Agent → Studio 직접 연결 구조 (명령 수신 레이어 Studio 내장)</p>
                         </div>
                       </div>
                     </div>
