@@ -184,7 +184,7 @@ export const projects: Project[] = [
   },
   {
     id: "studio-narrative",
-    title: "제품 방향성 Narrative - 조직 공통 판단 기준 수립",
+    title: "제품 방향성 Narrative - '우리는 왜 이렇게 만드는가' 정리",
     company: "OVERDARE",
     period: "2026.05 ~ 2026.07",
     tags: ["Problem Framing", "Alignment", "Strategy"],
@@ -193,7 +193,7 @@ export const projects: Project[] = [
     imagePlaceholder: "제품 방향성 Narrative 문서 및 의사결정 기준",
     metrics: [
       { value: "3가지 기준", label: "모든 기획·개발 판단의 공통 축" },
-      { value: "2트랙", label: "크리에이터 세그먼트 전략 정의" },
+      { value: "2트랙", label: "크리에이터 세그먼트 정의" },
       { value: "6개 영역", label: "기술 영역별 방향 사전 결정" },
     ],
     sections: {
