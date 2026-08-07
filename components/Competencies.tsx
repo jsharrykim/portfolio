@@ -114,17 +114,14 @@ export default function Competencies() {
     <section id="competencies" style={{ backgroundColor: "#ffffff", paddingTop: "96px", paddingBottom: "96px" }}>
       <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 32px" }}>
         {/* Header */}
-        <div style={{ marginBottom: "64px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "24px" }}>
+        <div style={{ marginBottom: "18px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "24px" }}>
           <div>
             <p style={{ fontSize: "12px", fontWeight: 700, color: "#2563eb", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "12px" }}>
               Core Competencies
             </p>
-            <h2 style={{ fontSize: "clamp(28px, 3vw, 36px)", fontWeight: 800, color: "#1b2b4b", letterSpacing: "-0.02em", marginBottom: "16px", lineHeight: 1.2 }}>
+            <h2 style={{ fontSize: "clamp(28px, 3vw, 36px)", fontWeight: 800, color: "#1b2b4b", letterSpacing: "-0.02em", marginBottom: 0, lineHeight: 1.2 }}>
               핵심 역량
             </h2>
-            <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.8, maxWidth: "520px", whiteSpace: "pre-line" }}>
-              {personalInfo.competencyIntro}
-            </p>
           </div>
           
           {/* Toggle Filter */}
@@ -165,6 +162,10 @@ export default function Competencies() {
             </button>
           </div>
         </div>
+
+        <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.8, marginBottom: "64px", whiteSpace: "pre-line" }}>
+          {personalInfo.competencyIntro}
+        </p>
 
         {/* Content */}
         {viewMode === "competency" ? (
