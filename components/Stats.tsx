@@ -7,7 +7,7 @@ export default function Stats() {
         {stats.map((stat, i) => (
           <div key={stat.label} style={{ padding: "40px 20px", borderRight: i < stats.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none", textAlign: "center" }}>
             <p style={{
-              fontSize: "clamp(22px, 3vw, 36px)",
+              fontSize: "clamp(18px, 2.4vw, 29px)",
               fontWeight: 900,
               color: "#ffffff",
               letterSpacing: "-0.03em",
