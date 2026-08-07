@@ -45,6 +45,7 @@ export default function AiPractice() {
                 lineHeight: 1.8,
                 color: "rgba(255,255,255,0.62)",
                 marginBottom: "10px",
+                whiteSpace: "pre-line",
               }}
             >
               {line}
