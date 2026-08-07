@@ -568,7 +568,7 @@ export const competencies: Competency[] = [
     id: "creator-economy",
     title: "크리에이터 중심으로 콘텐츠 공급을 설계하고 성장시키는 능력",
     why: "양면 플랫폼에서 제가 책임진 쪽은 콘텐츠를 만드는 공급 사이드입니다. 크리에이터 온보딩부터 제작, 퍼블리시까지의 여정을 직접 설계했고, 그렇게 만들어진 콘텐츠가 플레이어에게 발견되고 소비되는 지점까지 지표로 연결해 관리해왔습니다. 공급이 늘면 수요가 따라오고 수요가 늘면 공급이 다시 모이는 구조를, 공급 쪽에서 실제로 움직여본 경험이 있습니다.",
-    projectIds: ["creator-hub", "studio-metrics"],
+    projectIds: ["creator-hub"],
   },
   {
     id: "data-driven",
