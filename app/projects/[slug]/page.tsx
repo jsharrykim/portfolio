@@ -139,12 +139,12 @@ export default async function ProjectPage({ params }: Props) {
 
         {/* Case study */}
         <div style={{ border: "1px solid #e5e7eb", borderRadius: "16px", padding: "0 28px" }}>
-          <Section label="배경 (Context)" content={project.sections.context} />
-          <Section label="목표 (Goal)" content={project.sections.goal} />
-          <Section label="문제 정의 (Problem)" content={project.sections.problem} />
-          <Section label="가설 (Hypothesis)" content={project.sections.hypothesis} />
-          <Section label="실행 (Execution)" content={project.sections.execution} />
-          <Section label="결과 (Result)" content={project.sections.result} />
+          <Section label={project.sectionLabels?.context ?? "배경 (Context)"} content={project.sections.context} />
+          <Section label={project.sectionLabels?.goal ?? "목표 (Goal)"} content={project.sections.goal} />
+          <Section label={project.sectionLabels?.problem ?? "문제 정의 (Problem)"} content={project.sections.problem} />
+          <Section label={project.sectionLabels?.hypothesis ?? "가설 (Hypothesis)"} content={project.sections.hypothesis} />
+          <Section label={project.sectionLabels?.execution ?? "실행 (Execution)"} content={project.sections.execution} />
+          <Section label={project.sectionLabels?.result ?? "결과 (Result)"} content={project.sections.result} />
           {project.cycles?.length ? (
             <div style={{ padding: "28px 0", borderBottom: "1px solid #f3f4f6" }}>
               <p style={{ fontSize: "11px", fontWeight: 700, color: "#2563eb", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "6px" }}>실험 사이클 (Iterations)</p>
