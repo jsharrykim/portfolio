@@ -7,7 +7,7 @@ import { ProjectImage } from "@/components/ProjectImage";
 
 const COMP_ACCENT = ["#2563eb", "#7c3aed", "#059669", "#d97706"];
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, isRepeat = false }: { project: Project; isRepeat?: boolean }) {
   return (
     <div
       style={{
@@ -30,8 +30,13 @@ function ProjectCard({ project }: { project: Project }) {
       <div style={{ padding: "16px 20px 20px", display: "flex", flexDirection: "column", flex: 1 }}>
         {/* tags */}
         <div style={{ display: "flex", flexWrap: "wrap", gap: "5px", marginBottom: "10px", minHeight: "50px", alignContent: "flex-start" }}>
+          {isRepeat && (
+            <span style={{ fontSize: "11px", fontWeight: 600, color: "#9ca3af", backgroundColor: "#ffffff", border: "1px solid #e5e7eb", padding: "2px 8px", borderRadius: "999px", whiteSpace: "nowrap", flexShrink: 0 }}>
+              타 역량과 중복
+            </span>
+          )}
           {project.tags.map((tag) => (
-            <span key={tag} style={{ fontSize: "11px", fontWeight: 600, color: "#6b7280", backgroundColor: "#f3f4f6", padding: "3px 8px", borderRadius: "999px" }}>{tag}</span>
+            <span key={tag} style={{ fontSize: "11px", fontWeight: 600, color: "#6b7280", backgroundColor: "#f3f4f6", padding: "3px 8px", borderRadius: "999px", whiteSpace: "nowrap" }}>{tag}</span>
           ))}
         </div>
 
@@ -95,6 +100,14 @@ export default function Competencies() {
       return parseInt(lastMatch[1], 10) * 100 + parseInt(lastMatch[2] || "0", 10);
     };
     return getEndYearMonth(b.period) - getEndYearMonth(a.period);
+  });
+
+  // A project can belong to multiple competencies; only the first appearance is treated as canonical.
+  const firstCompetencyOf = new Map<string, string>();
+  competencies.forEach((comp) => {
+    comp.projectIds.forEach((id) => {
+      if (!firstCompetencyOf.has(id)) firstCompetencyOf.set(id, comp.id);
+    });
   });
 
   return (
@@ -188,7 +201,7 @@ export default function Competencies() {
                     }}
                   >
                     {relatedProjects.map((project) => (
-                      <ProjectCard key={project.id} project={project} />
+                      <ProjectCard key={project.id} project={project} isRepeat={firstCompetencyOf.get(project.id) !== comp.id} />
                     ))}
                   </div>
                 </div>
