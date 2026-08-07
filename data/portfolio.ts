@@ -6,11 +6,11 @@ export const personalInfo = {
   email: "jsharrykim@gmail.com",
   linkedin: "https://www.linkedin.com/in/jsharrykim",
   intro: [
-    "9년간 UGC 콘텐츠 플랫폼과 에듀테크에서 PM/PO로 일해왔습니다.",
+    "9년간 UGC 콘텐츠 플랫폼과 에듀테크 등 다양한 산업군에서 PM/PO로 일해왔습니다.",
     "도메인과 상관없이 문제의 본질을 찾고, 팀을 이끌어 비즈니스 성과로 만들어왔습니다.",
     "현재 오버데어에서 크리에이터 프로덕트 실의 실장이자 OVERDARE Studio 제품 리드로,\n28인 조직을 이끌며 크리에이터의 제작 여정 전반을 책임지고 있습니다.",
   ],
-  competencyIntro: "현 시대의 PM/PO에게 요구되는 다양한 역량 중,\n직접 경험으로 증명할 수 있는 역량들입니다.",
+  competencyIntro: "현 시대의 PM/PO에게 요구되는 다양한 역량 중, 직접 경험으로 증명할 수 있는 역량들입니다.",
   closingStatement: "새로운 도메인이라도, 문제의 본질을 빠르게 파악하고 결과로 증명하는 일 —\n이것이 제가 해온 일이고, 앞으로도 할 일입니다.",
 };
 
@@ -225,8 +225,8 @@ export const projects: Project[] = [
     imagePlaceholder: "Agentic Studio 데모 화면 또는 Agent UI 스크린샷",
     metrics: [
       { value: "절반", label: "배포 3개월 만에 Agent를 쓰는 활성 크리에이터 비중" },
-      { value: "+18.7%p", label: "Agent 사용군 퍼블리시 전환율 격차 (상관 · 인과 미검증)" },
-      { value: "NPS 23.3", label: "7월 외부 테스트 종료설문 (응답 81명)" },
+      { value: "+18.7%p", label: "Agent 사용군 퍼블리시 전환율 격차" },
+      { value: "NPS 23.3", label: "7월 외부 테스트 종료설문" },
     ],
     sections: {
       context: "UGC 플랫폼의 성장 공식은 단순합니다. 크리에이터가 콘텐츠를 많이, 잘 만들면 플레이어가 모이고, 플레이어가 모이면 크리에이터가 또 모입니다. 그래서 이 사업에서 가장 중요한 질문은 '어떻게 하면 콘텐츠 공급이 늘어나는가'입니다.\n\nOVERDARE는 세계 최대 UGC 플랫폼인 로블록스와 경쟁하는 후발주자입니다. 저는 이 경쟁 구도에서 우리가 취해야 할 포지션을 먼저 정리했습니다. 'AI 도입' 자체는 차별화가 아닙니다. 로블록스도 UEFN도 AI를 만들고 있고, 시간이 지나면 모든 플랫폼이 'AI로 쉽게 만드는 환경'을 갖게 됩니다. 실제 차별화는 경쟁사들이 아직 선택하지 않은 방향, 즉 '액션·슈팅·스포츠라는 타겟 장르에서만큼은 AI가 가장 잘 이해하고 직접 만들어주는 플랫폼'이 되는 데 있다고 판단했습니다.\n\n동시에 크리에이터를 두 트랙으로 나눠 봤습니다. 전문 크리에이터가 에디터로 만드는 고퀄리티 게임은 플랫폼에 유저를 끌어오고, 비개발자가 AI로 만드는 콘텐츠의 양은 플랫폼이 살아있다는 생동감을 만듭니다. 둘 다 필요하고, 후자를 가능하게 만드는 것이 Agentic Studio의 역할이었습니다.",
@@ -381,7 +381,7 @@ export const projects: Project[] = [
     metrics: [
       { value: "0→1", label: "콘텐츠 등록·게시 파이프라인" },
       { value: "0→1", label: "크리에이터 성과 애널리틱스" },
-      { value: "얼리엑세스", label: "외부 크리에이터 온보딩 런칭" },
+      { value: "얼리엑세스 런칭", label: "OVERDARE STUDIO" },
     ],
     sections: {
       context: "OVERDARE에 합류했을 때, 크리에이터가 플랫폼에서 뭔가를 하기 위한 인프라가 전혀 없었습니다. 게임을 등록하는 방법도, 내 게임이 얼마나 플레이됐는지 확인하는 방법도 없었습니다.\n\n이것은 단순히 '기능이 부족하다'의 문제가 아니었습니다. 플랫폼의 공급 사이드가 아예 존재하지 않는 상태였습니다. Creator Hub는 이 공급 인프라 전체를 0에서 만드는 프로젝트였습니다.",
@@ -635,7 +635,7 @@ export const projects: Project[] = [
     imagePlaceholder: "BOWL LMS 대시보드 또는 스프린트 보드 스크린샷",
     metrics: [
       { value: "100%", label: "목표 기능 마감 기한 준수율" },
-      { value: "5개+", label: "하나의 제품으로 통합한\n분산된 운영 도구" },
+      { value: "5개+", label: "하나의 제품으로 통합한 분산된 운영 도구" },
       { value: "3개", label: "B2B 필수 핵심 기능 배포" },
     ],
     sections: {
@@ -678,6 +678,7 @@ export const projects: Project[] = [
     metrics: [
       { value: "24%", label: "랜딩 사전 예약 전환율" },
       { value: "총 1,853명", label: "사전 예약자 확보" },
+      { value: "MVP 출시", label: "기획·UX·개발 PM 총괄" },
       { value: "예비창업가 선정", label: "한국관광공사 관광벤처사업" },
     ],
     sections: {
@@ -776,7 +777,7 @@ export const projects: Project[] = [
               rows: [
                 ["AR 적용", "몰입감이 이 서비스의 핵심", "기술 성숙도가 부족해 체감 효과는 낮고 개발 난이도만 상승", "종이 지도와 텍스트 퀘스트로 먼저 재미를 확인"],
                 ["게임 요소 지속 추가", "재미없으면 아무 의미가 없음", "개발 볼륨과 비용이 통제 범위를 이탈", "퀘스트 1개만 완성하고 나머지는 홀드"],
-                ["검증 대상 선정", "사전 예약자 수로 수요 확인 완료", "실제 플레이 경험은 끝까지 미검증", "사전 예약자 중 100명에게 수동 운영으로 실플레이 테스트"],
+                ["검증 대상 선정", "사전 예약자 수로 수요 확인 완료", "정작 실제 플레이가 재미있는지는 끝까지 제대로 확인하지 못함", "사전 예약자 중 100명에게 수동 운영으로 실플레이 테스트"],
                 ["자금 계획", "투자 유치로 메운다", "유치 실패 시 대안이 없었음", "런웨이 안에서 끝나는 범위로 스코프를 먼저 고정"],
               ],
               caption: "네 줄 모두 같은 실수의 변형입니다. '만들기 전에 검증한다'는 원칙을 2차 사이클에서는 지켰는데, 3차에서는 지키지 않았습니다.",
@@ -784,7 +785,7 @@ export const projects: Project[] = [
           },
           {
             label: "결과",
-            body: "개발 기간과 비용이 예상을 크게 초과했습니다. 이를 메우려던 투자 유치는 실패했고, 자금이 고갈되면서 2018년 12월 폐업을 결정했습니다.\n\n1,853명의 사전 예약자에게는 끝내 제품을 열어주지 못했습니다. 수요를 검증하고도 그 수요에 물건을 전달하지 못한 채 끝났다는 점이 가장 아팠습니다.",
+            body: "개발 기간과 비용이 예상을 크게 초과했습니다. 이를 메우려던 투자 유치는 실패했고, 자금이 고갈되면서 2018년 12월 폐업을 결정했습니다.\n\nMVP는 세상에 내놨지만, 1,853명이 기다리던 완성된 경험까지는 끝내 가지 못했습니다. 수요를 검증하고도 그 수요에 걸맞은 물건을 전달하지 못한 채 끝났다는 점이 가장 아팠습니다.",
           },
           {
             label: "회고",
@@ -817,7 +818,7 @@ export const competencies: Competency[] = [
   {
     id: "ai-native",
     title: "AI를 제품에 내재화하고, AI로 일하는 능력 (AI-Native)",
-    why: "단순히 AI를 업무 도구로 쓰는 수준이 아니라, AI Agent를 제품 구조 안에 내재화해 라이브 배포하고 운영하고 있습니다. 배포 3개월 만에 활성 크리에이터의 절반이 쓰는 기능이 됐고, Agent를 한 번이라도 쓴 크리에이터의 퍼블리시(게임 배포) 전환율은 미사용 크리에이터보다 18.7%p 높았습니다. 제 업무 방식 자체도 에이전트 위에서 돌아가도록 재설계해 쓰고 있습니다.",
+    why: "단순히 AI를 업무 도구로 쓰는 수준이 아니라, AI Agent를 제품 구조 안에 내재화해 라이브 배포하고 운영하고 있습니다. 배포 3개월 만에 활성 크리에이터의 절반이 쓰는 기능이 됐고, Agent를 한 번이라도 쓴 크리에이터의 퍼블리시(게임 배포) 전환율은 미사용 크리에이터보다 18.7%p 높았습니다.",
     projectIds: ["agentic-studio-tf"],
   },
   {
@@ -849,7 +850,7 @@ export const competencies: Competency[] = [
 // ─── Simple Skills ───────────────────────────────────────────────
 export const simpleSkills = [
   "SQL · Python · dbt · Snowflake · GA4 · Looker Studio",
-  "Claude Code · Cursor · MCP · Agent Skill 제작 · Context Engineering",
+  "Claude Code · Cursor · MCP · Agent",
   "Figma · PRD · UX Flow · Design Thinking · JTBD",
   "Jira · Confluence · Notion · Slack · Asana",
   "A/B Testing · OKR / OMTM · Agile / Scrum · Lean · Pre-totyping",
@@ -882,7 +883,7 @@ export const aiPractices: AiPractice[] = [
   {
     id: "product",
     layer: "01 — 제품에 넣기",
-    title: "AI를 제품 구조의 일부로 설계한다",
+    title: "AI Agent의 제품 내재화 설계",
     summary:
       "Agentic Studio TF를 리드하며 AI Agent를 Studio에 내장했습니다. 이 작업의 목표는 처음부터 하나였습니다. 크리에이터가 프롬프트를 어떻게 써야 할지 고민하지 않아도, 평소 하던 말 그대로 요청했을 때 의도한 결과가 나오게 만드는 것. AI를 잘 다루는 사람만 결과를 얻는 제품이라면 진입장벽을 없애려던 목적과 정반대가 되기 때문입니다. 잘 쓰는 법을 사용자에게 학습시키는 대신, 제품이 그 간극을 흡수하도록 설계했습니다.",
     items: [
@@ -909,7 +910,7 @@ export const aiPractices: AiPractice[] = [
   {
     id: "work",
     layer: "02 — 내 업무에 넣기",
-    title: "PO의 일하는 방식 자체를 에이전트 위로 옮긴다",
+    title: "PO 업무 프로세스의 에이전트 전환",
     summary:
       "문서를 요약시키는 수준이 아니라, 답을 만들어내는 절차 자체를 스킬로 정의해 두고 씁니다. 일하는 순서 자체가 바뀌었고, 필요하면 데이터 파이프라인도 직접 수정합니다.",
     items: [
