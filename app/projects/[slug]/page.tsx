@@ -132,7 +132,7 @@ export default async function ProjectPage({ params }: Props) {
           {project.metrics.map((m) => (
             <div key={m.label} style={{ backgroundColor: "#ffffff", border: "1px solid #e5e7eb", borderRadius: "12px", padding: "16px", textAlign: "center" }}>
               <p style={{ fontSize: "20px", fontWeight: 900, color: "#1b2b4b", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: "6px" }}>{m.value}</p>
-              <p style={{ fontSize: "11px", color: "#9ca3af", lineHeight: 1.4 }}>{m.label}</p>
+              <p style={{ fontSize: "11px", color: "#9ca3af", lineHeight: 1.4, whiteSpace: "pre-line" }}>{m.label}</p>
             </div>
           ))}
         </div>

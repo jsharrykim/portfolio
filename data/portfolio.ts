@@ -490,7 +490,7 @@ export const projects: Project[] = [
     imagePlaceholder: "BOWL LMS 대시보드 또는 스프린트 보드 스크린샷",
     metrics: [
       { value: "100%", label: "목표 기능 마감 기한 준수율" },
-      { value: "5개+", label: "하나의 제품으로 통합한 분산된 운영 도구" },
+      { value: "5개+", label: "하나의 제품으로 통합한\n분산된 운영 도구" },
       { value: "3개", label: "B2B 필수 핵심 기능 배포" },
     ],
     sections: {
