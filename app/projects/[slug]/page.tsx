@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, getProjectById, competencies } from "@/data/portfolio";
-import type { ProjectCycle } from "@/data/portfolio";
+import type { ProjectCycle, ProjectTable } from "@/data/portfolio";
 import { ProjectImage, AgenticStudioArchitectureRef, StudioOptimizationDashboardRef, StudioOptimizationDashboardRef2, StudioOptimizationDashboardRef3 } from "@/components/ProjectImage";
 import type { Metadata } from "next";
 
@@ -60,6 +60,34 @@ function Section({ label, content }: { label: string; content?: string }) {
   );
 }
 
+function DataTable({ table }: { table: ProjectTable }) {
+  return (
+    <div style={{ marginTop: "14px" }}>
+      <div style={{ overflowX: "auto", border: "1px solid #e5e7eb", borderRadius: "10px", backgroundColor: "#ffffff" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px", minWidth: `${table.headers.length * 150}px` }}>
+          <thead>
+            <tr>
+              {table.headers.map((h) => (
+                <th key={h} style={{ textAlign: "left", padding: "10px 14px", backgroundColor: "#f9fafb", borderBottom: "1px solid #e5e7eb", color: "#6b7280", fontWeight: 700, fontSize: "11.5px", letterSpacing: "0.04em", whiteSpace: "nowrap" }}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {table.rows.map((row, ri) => (
+              <tr key={ri}>
+                {row.map((cell, ci) => (
+                  <td key={ci} style={{ padding: "10px 14px", borderBottom: ri === table.rows.length - 1 ? "none" : "1px solid #f3f4f6", color: ci === 0 ? "#1b2b4b" : "#4b5563", fontWeight: ci === 0 ? 700 : 400, lineHeight: 1.6, verticalAlign: "top", whiteSpace: "pre-line" }}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {table.caption && <p style={{ fontSize: "12px", color: "#9ca3af", marginTop: "8px", lineHeight: 1.6 }}>{table.caption}</p>}
+    </div>
+  );
+}
+
 function CycleCard({ cycle, isLast }: { cycle: ProjectCycle; isLast: boolean }) {
   return (
     <div style={{ position: "relative", paddingLeft: "22px", paddingBottom: isLast ? "0" : "28px" }}>
@@ -78,6 +106,7 @@ function CycleCard({ cycle, isLast }: { cycle: ProjectCycle; isLast: boolean }) 
           <div key={block.label} style={{ padding: "18px 0", borderBottom: i === cycle.blocks.length - 1 ? "none" : "1px solid #f0efec" }}>
             <p style={{ fontSize: "11px", fontWeight: 700, color: "#6b7280", letterSpacing: "0.08em", marginBottom: "8px" }}>{block.label}</p>
             <p style={{ fontSize: "14.5px", color: "#374151", lineHeight: 1.8, whiteSpace: "pre-line" }}>{block.body}</p>
+            {block.table && <DataTable table={block.table} />}
           </div>
         ))}
       </div>
@@ -154,7 +183,7 @@ export default async function ProjectPage({ params }: Props) {
               ))}
             </div>
           ) : null}
-          <Section label="현재 상황 (Where We Are Now)" content={project.currentStatus} />
+          <Section label={project.sectionLabels?.currentStatus ?? "현재 상황 (Where We Are Now)"} content={project.currentStatus} />
           <div style={{ padding: "28px 0", borderBottom: (project.references?.length || project.referenceImages?.length || project.referenceComponents?.length) ? "1px solid #f3f4f6" : "none" }}>
             <p style={{ fontSize: "11px", fontWeight: 700, color: "#2563eb", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px" }}>배운점 (Lesson Learned)</p>
             <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.8, whiteSpace: "pre-line" }}>{project.sections.learning}</p>
