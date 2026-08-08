@@ -103,47 +103,6 @@ export function StudioMetricsImage({ style }: Props) {
   );
 }
 
-// ─── 2c. Product Narrative ──────────────────────────────────────
-export function StudioNarrativeImage({ style }: Props) {
-  return (
-    <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", display: "block", borderRadius: "10px", ...style }}>
-      <rect width="800" height="450" fill="#0d1b2a" />
-      <text x="32" y="46" fill="rgba(255,255,255,0.4)" fontSize="12" fontWeight="600" fontFamily="system-ui, sans-serif">우리는 왜 이렇게 만드는가</text>
-
-      <rect x="32" y="66" width="736" height="42" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
-      <text x="46" y="92" fill="rgba(255,255,255,0.35)" fontSize="12" fontFamily="system-ui, sans-serif">로블록스인가 · 언리얼인가 · 자체 UX인가 · AI 방식인가  →  매 아젠다마다 처음부터 재논쟁</text>
-
-      <text x="400" y="132" fill="rgba(255,255,255,0.2)" fontSize="16" textAnchor="middle" fontFamily="system-ui, sans-serif">↓</text>
-
-      {[
-        { x: 32, n: "①", t: "타겟 장르 기여", d: "액션 · 슈팅 · 스포츠에서\n더 잘 만들 수 있게 하는가", col: "rgba(59,130,246,0.5)" },
-        { x: 282, n: "②", t: "구조 결정", d: "크리에이터 친숙도 유지 vs\n언리얼 구조적 우위", col: "rgba(124,58,237,0.5)" },
-        { x: 532, n: "③", t: "Agent 호환성", d: "그 구조를 Agent가\n자연스럽게 쓸 수 있는가", col: "rgba(34,197,94,0.5)" },
-      ].map((c) => (
-        <g key={c.n}>
-          <rect x={c.x} y="150" width="236" height="112" rx="10" fill="rgba(255,255,255,0.04)" stroke={c.col} strokeWidth="1" />
-          <text x={c.x + 16} y="176" fill={c.col} fontSize="15" fontWeight="900" fontFamily="system-ui, sans-serif">{c.n}</text>
-          <text x={c.x + 40} y="176" fill="rgba(255,255,255,0.85)" fontSize="13" fontWeight="700" fontFamily="system-ui, sans-serif">{c.t}</text>
-          {c.d.split("\n").map((line, i) => (
-            <text key={i} x={c.x + 16} y={206 + i * 18} fill="rgba(255,255,255,0.35)" fontSize="11" fontFamily="system-ui, sans-serif">{line}</text>
-          ))}
-        </g>
-      ))}
-
-      <text x="32" y="300" fill="rgba(255,255,255,0.18)" fontSize="10" fontFamily="system-ui, sans-serif">크리에이터 2트랙 전략</text>
-      <rect x="32" y="312" width="360" height="102" rx="10" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.22)" strokeWidth="1" />
-      <text x="48" y="338" fill="rgba(255,255,255,0.8)" fontSize="13" fontWeight="700" fontFamily="system-ui, sans-serif">Editor 트랙 — 전문 크리에이터</text>
-      <text x="48" y="362" fill="rgba(255,255,255,0.38)" fontSize="11" fontFamily="system-ui, sans-serif">고퀄리티 게임이 유저를 끌어온다</text>
-      <text x="48" y="392" fill="rgba(147,180,245,0.75)" fontSize="11" fontFamily="system-ui, sans-serif">품질 기준 · 후킹 · Agent의 목표점</text>
-
-      <rect x="408" y="312" width="360" height="102" rx="10" fill="rgba(34,197,94,0.09)" stroke="rgba(34,197,94,0.22)" strokeWidth="1" />
-      <text x="424" y="338" fill="rgba(255,255,255,0.8)" fontSize="13" fontWeight="700" fontFamily="system-ui, sans-serif">Agent 트랙 — 비개발자</text>
-      <text x="424" y="362" fill="rgba(255,255,255,0.38)" fontSize="11" fontFamily="system-ui, sans-serif">콘텐츠 양이 생동감을 만든다</text>
-      <text x="424" y="392" fill="rgba(134,222,167,0.7)" fontSize="11" fontFamily="system-ui, sans-serif">공급량 · 저변 확대 · 플랫폼 활력</text>
-    </svg>
-  );
-}
-
 // ─── 3. Agentic Studio ─────────────────────────────────────────
 export function AgenticStudioImage({ style }: Props) {
   return (
@@ -800,7 +759,6 @@ export function ProjectImage({ projectId, style }: { projectId: string; style?: 
   switch (projectId) {
     case "studio-optimization": return <StudioOptimizationImage style={style} />;
     case "studio-metrics": return <StudioMetricsImage style={style} />;
-    case "studio-narrative": return <StudioNarrativeImage style={style} />;
     case "agentic-studio-tf": return <AgenticStudioImage style={style} />;
     case "product-split": return <ProductSplitImage style={style} />;
     case "creator-hub": return <CreatorHubImage style={style} />;
