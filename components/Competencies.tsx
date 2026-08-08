@@ -116,9 +116,6 @@ export default function Competencies() {
         {/* Header */}
         <div style={{ marginBottom: "18px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "24px" }}>
           <div>
-            <p style={{ fontSize: "12px", fontWeight: 700, color: "#2563eb", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "12px" }}>
-              Core Competencies
-            </p>
             <h2 style={{ fontSize: "clamp(28px, 3vw, 36px)", fontWeight: 800, color: "#1b2b4b", letterSpacing: "-0.02em", marginBottom: 0, lineHeight: 1.2 }}>
               핵심 역량
             </h2>

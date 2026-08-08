@@ -10,19 +10,6 @@ export default function AiPractice() {
   return (
     <section style={{ backgroundColor: "#111d33", padding: "80px 32px" }}>
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-        <p
-          style={{
-            fontSize: "11px",
-            fontWeight: 700,
-            color: "rgba(255,255,255,0.35)",
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            marginBottom: "14px",
-          }}
-        >
-          AI Practice
-        </p>
-
         <h2
           style={{
             fontSize: "clamp(24px, 3.4vw, 34px)",

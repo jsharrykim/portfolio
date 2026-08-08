@@ -15,9 +15,6 @@ export default function CareerTimeline() {
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
         {/* Header */}
         <div style={{ marginBottom: "48px" }}>
-          <p style={{ fontSize: "12px", fontWeight: 700, color: "#2563eb", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "10px" }}>
-            Career Path
-          </p>
           <h2 style={{ fontSize: "clamp(24px, 3vw, 32px)", fontWeight: 800, color: "#1b2b4b", letterSpacing: "-0.02em" }}>
             커리어
           </h2>
