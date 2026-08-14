@@ -16,7 +16,7 @@ export default function Hero() {
         </p>
         <div style={{ maxWidth: "720px", marginBottom: "48px" }}>
           {personalInfo.intro.map((line, i) => (
-            <p key={i} style={{ fontSize: "16px", color: "#374151", lineHeight: 1.6, marginBottom: i < personalInfo.intro.length - 1 ? "6px" : 0, whiteSpace: "pre-line" }}>
+            <p key={i} style={{ fontSize: "16px", color: "#374151", lineHeight: 1.6, marginBottom: i < personalInfo.intro.length - 1 ? "18px" : 0, whiteSpace: "pre-line" }}>
               {line}
             </p>
           ))}

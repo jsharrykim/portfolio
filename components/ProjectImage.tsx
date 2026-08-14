@@ -530,7 +530,7 @@ export function SideProjectImage({ style }: Props) {
       <text x="608" y="175" fill="rgba(34,197,94,0.95)" fontSize="76" fontWeight="900" textAnchor="middle" fontFamily="system-ui, sans-serif">100%</text>
       <text x="608" y="205" fill="rgba(255,255,255,0.4)" fontSize="13" textAnchor="middle" fontFamily="system-ui, sans-serif">희망 직군 취업률</text>
       <line x1="472" y1="228" x2="748" y2="228" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
-      <text x="608" y="268" fill="rgba(34,197,94,0.6)" fontSize="28" fontWeight="700" textAnchor="middle" fontFamily="system-ui, sans-serif">7.7 / 10</text>
+      <text x="608" y="268" fill="rgba(34,197,94,0.6)" fontSize="28" fontWeight="700" textAnchor="middle" fontFamily="system-ui, sans-serif">7.8 / 10</text>
       <text x="608" y="290" fill="rgba(255,255,255,0.25)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">평균 만족도</text>
       <text x="608" y="338" fill="rgba(255,255,255,0.55)" fontSize="24" fontWeight="700" textAnchor="middle" fontFamily="system-ui, sans-serif">+29%</text>
       <text x="608" y="358" fill="rgba(255,255,255,0.2)" fontSize="11" textAnchor="middle" fontFamily="system-ui, sans-serif">랜딩 노출 후 지원자 증가율</text>

@@ -184,11 +184,11 @@ export default async function ProjectPage({ params }: Props) {
             </div>
           ) : null}
           <Section label={project.sectionLabels?.currentStatus ?? "현재 상황 (Where We Are Now)"} content={project.currentStatus} />
-          <div style={{ padding: "28px 0", borderBottom: (project.references?.length || project.referenceImages?.length || project.referenceComponents?.length) ? "1px solid #f3f4f6" : "none" }}>
+          <div style={{ padding: "28px 0", borderBottom: (project.references?.length || project.referenceImages?.length || project.referenceVideos?.length || project.referenceComponents?.length) ? "1px solid #f3f4f6" : "none" }}>
             <p style={{ fontSize: "11px", fontWeight: 700, color: "#2563eb", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "12px" }}>배운점 (Lesson Learned)</p>
             <p style={{ fontSize: "15px", color: "#374151", lineHeight: 1.8, whiteSpace: "pre-line" }}>{project.sections.learning}</p>
           </div>
-          {(project.referenceImages?.length || project.references?.length || project.referenceComponents?.length) ? (
+          {(project.referenceImages?.length || project.referenceVideos?.length || project.references?.length || project.referenceComponents?.length) ? (
             <div style={{ padding: "28px 0" }}>
               <p style={{ fontSize: "11px", fontWeight: 700, color: "#2563eb", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "16px" }}>레퍼런스 (References)</p>
               
@@ -244,16 +244,43 @@ export default async function ProjectPage({ params }: Props) {
                 return null;
               })}
 
+              {/* Videos */}
+              {project.referenceVideos && project.referenceVideos.length > 0 && (
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "24px", marginBottom: (project.referenceImages?.length || project.references?.length) ? "24px" : "0", alignItems: "stretch" }}>
+                  {project.referenceVideos.map((vid, idx) => (
+                    <div key={`vid-${idx}`} style={{ gridColumn: vid.halfWidth ? "span 1" : "span 2", borderRadius: "12px", overflow: "hidden", backgroundColor: "#ffffff", border: "1px solid #e5e7eb", display: "flex", flexDirection: "column" }}>
+                      <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9", backgroundColor: "#0b1220", flexShrink: 0 }}>
+                        <video
+                          src={vid.url}
+                          poster={vid.poster}
+                          controls
+                          playsInline
+                          preload="metadata"
+                          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block", backgroundColor: "#0b1220" }}
+                        />
+                      </div>
+                      {vid.caption && (
+                        <div style={{ padding: "12px 16px", borderTop: "1px solid #e5e7eb", backgroundColor: "#ffffff", minHeight: "48px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <p style={{ fontSize: "13px", color: "#6b7280", textAlign: "center", margin: 0 }}>{vid.caption}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {/* Images */}
               {project.referenceImages && project.referenceImages.length > 0 && (
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "24px", marginBottom: project.references?.length ? "24px" : "0" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "24px", marginBottom: project.references?.length ? "24px" : "0", alignItems: "stretch" }}>
                   {project.referenceImages.map((img, idx) => (
-                    <div key={`img-${idx}`} style={{ gridColumn: img.halfWidth ? "span 1" : "span 2", borderRadius: "12px", overflow: "hidden", backgroundColor: "#f9f8f6", border: "1px solid #e5e7eb" }}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={img.url} alt={img.caption || "레퍼런스 이미지"} style={{ width: "100%", height: "auto", display: "block" }} />
+                    <div key={`img-${idx}`} style={{ gridColumn: img.halfWidth ? "span 1" : "span 2", borderRadius: "12px", overflow: "hidden", backgroundColor: "#ffffff", border: "1px solid #e5e7eb", display: "flex", flexDirection: "column" }}>
+                      <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9", backgroundColor: "#0b1220", flexShrink: 0 }}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={img.url} alt={img.caption || "레퍼런스 이미지"} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                      </div>
                       {img.caption && (
-                        <div style={{ padding: "12px 16px", borderTop: "1px solid #e5e7eb", backgroundColor: "#ffffff", height: "100%" }}>
-                          <p style={{ fontSize: "13px", color: "#6b7280", textAlign: "center" }}>{img.caption}</p>
+                        <div style={{ padding: "12px 16px", borderTop: "1px solid #e5e7eb", backgroundColor: "#ffffff", minHeight: "48px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <p style={{ fontSize: "13px", color: "#6b7280", textAlign: "center", margin: 0 }}>{img.caption}</p>
                         </div>
                       )}
                     </div>
