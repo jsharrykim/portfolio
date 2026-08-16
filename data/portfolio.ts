@@ -134,7 +134,7 @@ export type Project = {
   sectionLabels?: Partial<Record<"context" | "goal" | "problem" | "hypothesis" | "execution" | "result" | "currentStatus", string>>;
   cycles?: ProjectCycle[];
   currentStatus?: string;
-  referenceImages?: { url: string; caption?: string; halfWidth?: boolean }[];
+  referenceImages?: { url: string; caption?: string; halfWidth?: boolean; fit?: "cover" | "contain"; aspectRatio?: string }[];
   referenceVideos?: { url: string; poster?: string; caption?: string; halfWidth?: boolean }[];
   references?: { title: string; link: string; description?: string }[];
   referenceComponents?: string[];
@@ -761,36 +761,50 @@ export const projects: Project[] = [
         url: "/love-alarm/01-alarm-list.png",
         caption: "알람 목록 — 등록한 알람·슬롯 현황과 하단 탭 IA",
         halfWidth: true,
+        fit: "contain",
+        aspectRatio: "9 / 19.5",
       },
       {
         url: "/love-alarm/02-add-alarm.png",
         caption: "알람 추가 — 상대에게 노출되지 않는 호감 등록 + 선택 메시지",
         halfWidth: true,
+        fit: "contain",
+        aspectRatio: "9 / 19.5",
       },
       {
         url: "/love-alarm/03-like-count.png",
         caption: "좋아하는 사람 수 — 광고 리워드로 조회하는 성장 루프",
         halfWidth: true,
+        fit: "contain",
+        aspectRatio: "9 / 19.5",
       },
       {
         url: "/love-alarm/04-instagram-verify.png",
         caption: "인스타그램 인증 — 팔로우·DM·OTP 4단계 본인 확인",
         halfWidth: true,
+        fit: "contain",
+        aspectRatio: "9 / 19.5",
       },
       {
         url: "/love-alarm/05-verify-manage.png",
         caption: "인증 관리 — 연동 계정 재인증·해제",
         halfWidth: true,
+        fit: "contain",
+        aspectRatio: "9 / 19.5",
       },
       {
         url: "/love-alarm/06-rewards.png",
         caption: "보상 — 출석 체크인으로 슬롯 추가·광고 제거",
         halfWidth: true,
+        fit: "contain",
+        aspectRatio: "9 / 19.5",
       },
       {
         url: "/love-alarm/07-more.png",
         caption: "더보기 — 인증·알림·피드백·공유 진입점",
         halfWidth: true,
+        fit: "contain",
+        aspectRatio: "9 / 19.5",
       },
     ],
   },

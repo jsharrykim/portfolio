@@ -272,19 +272,23 @@ export default async function ProjectPage({ params }: Props) {
               {/* Images */}
               {project.referenceImages && project.referenceImages.length > 0 && (
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "24px", marginBottom: project.references?.length ? "24px" : "0", alignItems: "stretch" }}>
-                  {project.referenceImages.map((img, idx) => (
-                    <div key={`img-${idx}`} style={{ gridColumn: img.halfWidth ? "span 1" : "span 2", borderRadius: "12px", overflow: "hidden", backgroundColor: "#ffffff", border: "1px solid #e5e7eb", display: "flex", flexDirection: "column" }}>
-                      <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9", backgroundColor: "#0b1220", flexShrink: 0 }}>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={img.url} alt={img.caption || "레퍼런스 이미지"} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                      </div>
-                      {img.caption && (
-                        <div style={{ padding: "12px 16px", borderTop: "1px solid #e5e7eb", backgroundColor: "#ffffff", minHeight: "48px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                          <p style={{ fontSize: "13px", color: "#6b7280", textAlign: "center", margin: 0 }}>{img.caption}</p>
+                  {project.referenceImages.map((img, idx) => {
+                    const fit = img.fit ?? "cover";
+                    const aspectRatio = img.aspectRatio ?? "16 / 9";
+                    return (
+                      <div key={`img-${idx}`} style={{ gridColumn: img.halfWidth ? "span 1" : "span 2", borderRadius: "12px", overflow: "hidden", backgroundColor: "#ffffff", border: "1px solid #e5e7eb", display: "flex", flexDirection: "column" }}>
+                        <div style={{ position: "relative", width: "100%", aspectRatio, backgroundColor: fit === "contain" ? "#f3f4f6" : "#0b1220", flexShrink: 0 }}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={img.url} alt={img.caption || "레퍼런스 이미지"} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: fit, objectPosition: "top center", display: "block" }} />
                         </div>
-                      )}
-                    </div>
-                  ))}
+                        {img.caption && (
+                          <div style={{ padding: "12px 16px", borderTop: "1px solid #e5e7eb", backgroundColor: "#ffffff", minHeight: "48px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                            <p style={{ fontSize: "13px", color: "#6b7280", textAlign: "center", margin: 0 }}>{img.caption}</p>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
 
