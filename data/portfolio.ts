@@ -740,7 +740,7 @@ export const projects: Project[] = [
     company: "사이드 프로젝트",
     period: "2025.12 ~ 현재",
     tags: ["0→1", "Product Engineer", "Mobile"],
-    role: "1인 Product Engineer · 기획 · UX · FE/BE · 배포 · 운영",
+    role: "1인 출시 · 기획 · UX · FE/BE · 배포 · 운영",
     summary: "고백 부담 없이 서로의 호감을 확인할 수 있는 익명 매칭 미니앱을 토스 앱인토스에 단독으로 기획·개발·출시했습니다. React/TDS 프론트와 Express/Prisma 백엔드, 인앱결제·푸시·이벤트 로깅까지 직접 붙였고, 첫 라이브 이후 MAU 급락을 ‘재방문 동기 부재’로 진단해 탭·보상·인증·메시지 실험으로 제품 루프를 다시 짜고 있습니다.",
     imagePlaceholder: "좋아하면 울리는 알람 목록 화면",
     metrics: [
