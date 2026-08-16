@@ -766,14 +766,14 @@ export const projects: Project[] = [
       },
       {
         url: "/love-alarm/02-add-alarm.png",
-        caption: "알람 추가 — 상대에게 노출되지 않는 호감 등록 + 선택 메시지",
+        caption: "알람 추가 — 비노출 호감 등록·선택 메시지",
         halfWidth: true,
         fit: "contain",
         aspectRatio: "9 / 19.5",
       },
       {
         url: "/love-alarm/03-like-count.png",
-        caption: "좋아하는 사람 수 — 광고 리워드로 조회하는 성장 루프",
+        caption: "좋아하는 사람 수 — 광고 리워드 조회",
         halfWidth: true,
         fit: "contain",
         aspectRatio: "9 / 19.5",
