@@ -799,13 +799,6 @@ export const projects: Project[] = [
         fit: "contain",
         aspectRatio: "9 / 19.5",
       },
-      {
-        url: "/love-alarm/07-more.png",
-        caption: "더보기 — 인증·알림·피드백·공유 진입점",
-        halfWidth: true,
-        fit: "contain",
-        aspectRatio: "9 / 19.5",
-      },
     ],
   },
 
