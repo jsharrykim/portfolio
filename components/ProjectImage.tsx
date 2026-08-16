@@ -540,6 +540,32 @@ export function SideProjectImage({ style }: Props) {
   );
 }
 
+// ─── 8b. Love Alarm ──────────────────────────────────────────────
+export function LoveAlarmImage({ style }: Props) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        aspectRatio: "16 / 9",
+        borderRadius: "10px",
+        overflow: "hidden",
+        backgroundColor: "#f3f4f6",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        ...style,
+      }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/love-alarm/01-alarm-list.png"
+        alt="좋아하면 울리는 - 알람 목록"
+        style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center top", display: "block" }}
+      />
+    </div>
+  );
+}
+
 // ─── 8. Buildmusic ───────────────────────────────────────────────
 export function BuildmusicImage({ style }: Props) {
   return (
@@ -764,6 +790,7 @@ export function ProjectImage({ projectId, style }: { projectId: string; style?: 
     case "creator-hub": return <CreatorHubImage style={style} />;
     case "side-project-program": return <SideProjectImage style={style} />;
     case "buildmusic": return <BuildmusicImage style={style} />;
+    case "love-alarm": return <LoveAlarmImage style={style} />;
     case "mask": return <MaskImage style={style} />;
     case "lms-bowl": return <LmsBowlImage style={style} />;
     default:

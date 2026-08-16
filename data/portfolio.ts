@@ -672,10 +672,6 @@ export const projects: Project[] = [
     currentStatus: "프로젝트는 2022년 12월 설계 완료 시점에 종료했습니다. 목표 기준으로 정직하게 적으면 이렇습니다.\n\n달성한 것 — 목표는 '만드는 것'이 아니라 '이 구조가 성립하는지 판정하는 것'이었고, 그 판정은 냈습니다. 개발비를 쓰기 전에 답이 나왔다는 점에서 목표 자체는 달성했습니다. 165명 설문으로 수요를, 10인 인터뷰로 진짜 병목을 확인했고, 그 결과를 IA·MVP·프로토타입까지 구체화해 다음 사람이 이어받을 수 있는 형태로 남겼습니다.\n\n달성하지 못한 것 — 최종 가설인 '사전에 핏을 확인시키면 협업 실패 비용이 줄어든다'는 끝내 검증하지 못했습니다. 사용자 앞에 물건을 놓아본 적이 없기 때문입니다. 이건 외부 환경 때문이 아니라 제가 순서를 잘못 잡아서 생긴 결과입니다.\n\n지금 다시 한다면 — 두 달 중 첫 3주 안에 프로필과 음원 소스 재생만 붙인 조악한 프로토타입을 만들어 작가 5명에게 실제 협업을 붙여봤을 겁니다. 그랬다면 생성형 AI가 등장하기 전에 핵심 가설의 답을 얻었을 것이고, 설령 같은 이유로 접었더라도 '검증된 인사이트'를 남기고 접을 수 있었을 것입니다.",
     referenceImages: [
       {
-        url: "/buildmusic/buildmusic-mvp-ui.png",
-        caption: "Buildmusic - MVP UI Design"
-      },
-      {
         url: "/buildmusic/buildmusic-home-v2.png",
         caption: "Buildmusic - MVP 화면 설계: 홈",
         halfWidth: true
@@ -737,6 +733,66 @@ export const projects: Project[] = [
         caption: "BOWL LMS - 콘텐츠 관리 인터페이스"
       }
     ]
+  },
+  {
+    id: "love-alarm",
+    title: "좋아하면 울리는 - 앱인토스 익명 호감 매칭 미니앱",
+    company: "사이드 프로젝트",
+    period: "2025.12 ~ 현재",
+    tags: ["0→1", "Product Engineer", "Mobile"],
+    role: "1인 Product Engineer · 기획 · UX · FE/BE · 배포 · 운영",
+    summary: "고백 부담 없이 서로의 호감을 확인할 수 있는 익명 매칭 미니앱을 토스 앱인토스에 단독으로 기획·개발·출시했습니다. React/TDS 프론트와 Express/Prisma 백엔드, 인앱결제·푸시·이벤트 로깅까지 직접 붙였고, 첫 라이브 이후 MAU 급락을 ‘재방문 동기 부재’로 진단해 탭·보상·인증·메시지 실험으로 제품 루프를 다시 짜고 있습니다.",
+    imagePlaceholder: "좋아하면 울리는 알람 목록 화면",
+    metrics: [
+      { value: "2026.01", label: "앱인토스 첫 라이브" },
+      { value: "약 1,000", label: "런칭 월 MAU" },
+      { value: "1인", label: "기획·개발·운영 end-to-end" },
+    ],
+    sections: {
+      context: "누군가에게 마음이 있어도 먼저 고백하기 어려운 문제는 흔하지만, 거절 리스크 때문에 대부분은 아무 행동도 하지 않습니다. ‘좋아하면 울리는’은 인스타그램 ID 기반으로 알람을 등록하고, 상대도 나에게 알람을 울렸을 때만 매칭이 성립되도록 해 일방적 노출 없이 호감을 확인할 수 있게 만든 서비스입니다.\n\n회사 제품이 아니라 사이드 프로젝트로 잡았습니다. PM으로서 기획만 하는 게 아니라, 모바일 미니앱을 실제로 검수·배포·운영하는 전 과정을 혼자 끝까지 가져가 보고 싶었습니다.",
+      problem: "초기에는 LocalStorage만으로도 MVP를 낼 수 있었지만, 매칭·결제·푸시·인증이 붙는 순간 서버와 플랫폼 API가 필수였습니다. 동시에 앱인토스 검수·SDK·인앱결제·푸시(mTLS) 같은 플랫폼 제약을 제품 요구사항과 맞춰야 했습니다.\n\n첫 라이브(2026.01) 후 런칭 월 MAU는 약 1,000명 규모였지만, 이어진 두 달 동안 급격히 줄었습니다. 유입보다 재방문 동기가 없다는 쪽이 더 큰 문제로 보였습니다.",
+      hypothesis: "양방향 매칭이라는 핵심 루프는 유지하되, ① 발견 가능한 IA(하단 탭) ② 체크인·광고 기반 보상 ③ 인스타 인증으로 신뢰 구간 확보 ④ 메시지·푸시로 재방문 트리거를 순서대로 넣으면 리텐션 루프가 생길 것이라 봤습니다. 실험마다 Control을 고정하고 검수 단위로 배포하는 방식으로 가설을 쌓았습니다.",
+      execution: "1인으로 제품 전 구간을 가져갔습니다.\n\n① 프론트 — React · Vite · TDS Mobile · Granite/AIT로 앱인토스 번들 빌드·콘솔 업로드\n② 백엔드 — Express · Prisma · Supabase/Render, 매칭·유저·메시지 API\n③ 수익·그로스 — 알람 슬롯 IAP, 광고 CTA, 체크인 보상\n④ 신뢰·리텐션 — 인스타 DM 인증, 연결/메시지 푸시, 이벤트 로깅·운영 대시보드\n⑤ 운영 — 검수 요청서 작성, 스테이징 분리, Free 플랜 Suspend·keep-alive 같은 라이브 이슈 직접 대응\n\n검수 1~4로 탭·보상·인증·메시지까지 기본 기능을 쌓았고, 이후는 그로스 실험 구간으로 보고 있습니다.",
+      result: "2026.01 앱인토스 첫 출시. 런칭 월 MAU 약 1,000. 이후 하락을 인정한 뒤 리텐션 가설로 제품을 다시 짜는 중입니다.\n\n‘성공한 사이드’라고 말하기엔 이릅니다. 다만 기획→구현→검수→라이브→지표 진단→재배포 사이클을 혼자 돌릴 수 있다는 점은 확인했습니다. AI 클론 같은 곁가지 실험은 가설이 약하면 브랜치만 남기고 본선에서 빼는 식으로 범위를 잘랐습니다.",
+      learning: "사이드에서도 회사 제품과 같은 원칙이 통했습니다. 출시가 끝이 아니라 측정 가능한 가설의 시작이라는 것, 그리고 플랫폼(검수·결제·푸시) 제약을 제품 설계의 일부로 처음부터 넣어야 한다는 것입니다.\n\n또 하나는 Product Engineer로서의 감각입니다. 스펙을 넘기는 포지션이 아니라, 막히는 지점을 코드와 인프라까지 직접 열어보면 우선순위 판단이 빨라집니다. 이 경험이 본업에서 ‘직접 프로토타입·대시보드를 먼저 만든다’는 작업 방식과도 이어집니다.",
+    },
+    referenceImages: [
+      {
+        url: "/love-alarm/01-alarm-list.png",
+        caption: "알람 목록 — 등록한 알람·슬롯 현황과 하단 탭 IA",
+        halfWidth: true,
+      },
+      {
+        url: "/love-alarm/02-add-alarm.png",
+        caption: "알람 추가 — 상대에게 노출되지 않는 호감 등록 + 선택 메시지",
+        halfWidth: true,
+      },
+      {
+        url: "/love-alarm/03-like-count.png",
+        caption: "좋아하는 사람 수 — 광고 리워드로 조회하는 성장 루프",
+        halfWidth: true,
+      },
+      {
+        url: "/love-alarm/04-instagram-verify.png",
+        caption: "인스타그램 인증 — 팔로우·DM·OTP 4단계 본인 확인",
+        halfWidth: true,
+      },
+      {
+        url: "/love-alarm/05-verify-manage.png",
+        caption: "인증 관리 — 연동 계정 재인증·해제",
+        halfWidth: true,
+      },
+      {
+        url: "/love-alarm/06-rewards.png",
+        caption: "보상 — 출석 체크인으로 슬롯 추가·광고 제거",
+        halfWidth: true,
+      },
+      {
+        url: "/love-alarm/07-more.png",
+        caption: "더보기 — 인증·알림·피드백·공유 진입점",
+        halfWidth: true,
+      },
+    ],
   },
 
   {
@@ -898,7 +954,7 @@ export const competencies: Competency[] = [
     id: "zero-to-one",
     title: "아무것도 없는 곳에서 결과물을 만들어낼 수 있는 그릿과 실행력 (0→1)",
     why: "창업부터 커뮤니티 프로그램, 플랫폼 생태계 설계까지 — 기존에 없던 걸 주도적으로 설계해 실행할 수 있습니다.",
-    projectIds: ["creator-hub", "side-project-program", "mask"],
+    projectIds: ["creator-hub", "side-project-program", "love-alarm", "mask"],
   },
   {
     id: "data-driven",
