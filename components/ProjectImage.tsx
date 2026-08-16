@@ -549,18 +549,15 @@ export function LoveAlarmImage({ style }: Props) {
         aspectRatio: "16 / 9",
         borderRadius: "10px",
         overflow: "hidden",
-        backgroundColor: "#f3f4f6",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        backgroundColor: "#3B82F6",
         ...style,
       }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/love-alarm/01-alarm-list.png"
-        alt="좋아하면 울리는 - 알람 목록"
-        style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center top", display: "block" }}
+        src="/love-alarm/og-image.jpg"
+        alt="좋아하면 울리는"
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
       />
     </div>
   );
